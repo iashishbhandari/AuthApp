@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AuthAppBusinessLogic.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>AuthiOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>287EBE302651095700632D33</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28836862265071860059AB38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28B1AA2E264E4391007B5F49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28DC4BA12650F95E004C6A6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28DC4BA92650F95E004C6A6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
