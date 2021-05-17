@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283CFEF12652A18400D4B8EB /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283CFEF02652A18400D4B8EB /* AuthEngine.framework */; };
+		283CFEF22652A18400D4B8EB /* AuthEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 283CFEF02652A18400D4B8EB /* AuthEngine.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		283E6C4D264E9212003AFE48 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C4C264E9212003AFE48 /* LoaderView.swift */; };
 		283E6C53264E93A8003AFE48 /* AppNavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C52264E93A8003AFE48 /* AppNavigationStore.swift */; };
 		283E6C94264F202A003AFE48 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C93264F202A003AFE48 /* AuthenticationViewModel.swift */; };
@@ -19,10 +21,8 @@
 		287EBE932651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EBE922651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift */; };
 		287EBEA326513F9D00632D33 /* ResetAuthStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EBEA226513F9D00632D33 /* ResetAuthStateUseCase.swift */; };
 		287EBEA72651403D00632D33 /* ResetAuthStateUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EBEA62651403D00632D33 /* ResetAuthStateUseCaseTest.swift */; };
-		287EBEB2265144B700632D33 /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287EBEB1265144B700632D33 /* AuthEngine.framework */; };
-		287EBEB3265144B700632D33 /* AuthEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287EBEB1265144B700632D33 /* AuthEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		287EBEB7265144C300632D33 /* AuthAppBusinessDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */; };
-		287EBEB8265144C300632D33 /* AuthAppBusinessDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		287EBEB8265144C300632D33 /* AuthAppBusinessDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28836856265030140059AB38 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836855265030140059AB38 /* AppConstants.swift */; };
 		28836858265053830059AB38 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836857265053830059AB38 /* NavigationView.swift */; };
 		2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883685D26506F8E0059AB38 /* LoaderViewModel.swift */; };
@@ -53,13 +53,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		283CFEF32652A18400D4B8EB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				283CFEF22652A18400D4B8EB /* AuthEngine.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		287EBEB4265144B700632D33 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				287EBEB3265144B700632D33 /* AuthEngine.framework in Embed Frameworks */,
 				287EBEB8265144C300632D33 /* AuthAppBusinessDomain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -68,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		283CFED726529D6D00D4B8EB /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		283CFEF02652A18400D4B8EB /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		283E6C3B264E873A003AFE48 /* AuthenticationDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenter.swift; sourceTree = "<group>"; };
 		283E6C3E264E8B4D003AFE48 /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		283E6C42264E8C07003AFE48 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
@@ -106,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				287EBEB2265144B700632D33 /* AuthEngine.framework in Frameworks */,
 				287EBEB7265144C300632D33 /* AuthAppBusinessDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283CFEF12652A18400D4B8EB /* AuthEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +193,8 @@
 		283E6C65264E9696003AFE48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				283CFEF02652A18400D4B8EB /* AuthEngine.framework */,
+				283CFED726529D6D00D4B8EB /* AuthEngine.framework */,
 				287EBEB1265144B700632D33 /* AuthEngine.framework */,
 				287EBE7626510C4100632D33 /* AuthEngine.framework */,
 				287EBE4426510AE600632D33 /* AuthEngine.framework */,
@@ -325,6 +339,7 @@
 				28DC4B9E2650F95E004C6A6C /* Sources */,
 				28DC4B9F2650F95E004C6A6C /* Frameworks */,
 				28DC4BA02650F95E004C6A6C /* Resources */,
+				283CFEF32652A18400D4B8EB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
