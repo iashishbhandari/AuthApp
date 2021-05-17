@@ -5,13 +5,13 @@
 //  Created by Ashish Bhandari - TIL on 14/05/21.
 //
 
-import AuthEngine
+import Foundation
 
 public struct ResultViewModel {
     private(set) public var isAuthorised: Bool
-    private(set) public var type: AuthType?
+    private(set) public var type: AuthAppButtonType?
     
-    public init(isAuthorised: Bool, type: AuthType?) {
+    public init(isAuthorised: Bool = false, type: AuthAppButtonType? = nil) {
         self.isAuthorised = isAuthorised
         self.type = type
     }
@@ -24,9 +24,20 @@ public struct ResultViewModel {
     }
 }
 
+public enum AuthAppButtonType: String {
+    case location = "Location"
+    case photo = "Photos"
+    case video = "Videos"
+}
+
+public enum AuthAppError: Error {
+    case serviceError
+    case unknown
+}
+
 public protocol AuthDataPresenterOutput {
     func onSuccess(model: ResultViewModel)
-    func onFailure(error: (type: AuthError, title: String, message: String))
+    func onFailure(error: (type: AuthAppError, title: String, message: String))
 }
 
 public final class AuthenticationDataPresenter {
@@ -38,7 +49,7 @@ public final class AuthenticationDataPresenter {
 }
 
 extension AuthenticationDataPresenter: AuthenticationUseCaseOutput {
-    public func didComplete(for type: AuthType, result: Result<Bool, AuthError>) {
+    public func didComplete(for type: AuthAppButtonType, result: Result<Bool, AuthAppError>) {
         switch result {
         case .success(let authenticated):
             output.onSuccess(model: ResultViewModel(isAuthorised: authenticated, type: type))

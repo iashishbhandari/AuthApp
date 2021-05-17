@@ -6,29 +6,21 @@
 //
 
 import SwiftUI
-import AuthEngine
-import AuthAppBusinessLogic
+import AuthAppBusinessDomain
 
 final class AuthenticationViewModel: ObservableObject {
     @Published var alertInfo: (title: String, message: String, buttonText: String, isPresented: Bool) = AppConstants.alertInfo
-    @Published var resultViewModel: ResultViewModel = ResultViewModel(isAuthorised: false, type: nil)
+    @Published var resultViewModel: ResultViewModel = ResultViewModel()
     
-    var handler: ((AuthType) -> Void)?
+    var handler: ((AuthAppButtonType) -> Void)?
     var resetAction: (() -> Void)?
 
     var isAuthorised: Bool {
         resultViewModel.isAuthorised
     }
     
-    func isSelected(type: ButtonType) -> Bool {
-        switch type {
-        case .location:
-            return resultViewModel.type == AuthType.location
-        case .photo:
-            return resultViewModel.type == AuthType.photo
-        case .video:
-            return resultViewModel.type == AuthType.video
-        }
+    func isSelected(type: AuthAppButtonType) -> Bool {
+        resultViewModel.type == type
     }
 }
 
@@ -37,7 +29,7 @@ extension AuthenticationViewModel: AuthDataPresenterOutput {
         resultViewModel = model
     }
     
-    func onFailure(error: (type: AuthError, title: String, message: String)) {
+    func onFailure(error: (type: AuthAppError, title: String, message: String)) {
         alertInfo = (error.title, error.message, "Ok", true)
     }
 }

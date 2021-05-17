@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AuthAppBusinessLogic
+import AuthAppBusinessDomain
 
 protocol ViewComposerFactory {
     func composedView(for type: AppViewType) -> AnyView

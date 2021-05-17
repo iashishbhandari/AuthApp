@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AuthAppBusinessLogic
+import AuthAppBusinessDomain
 
 final class AuthAppNavigationAdapter {
     private(set) var navigation: AppNavigationStore

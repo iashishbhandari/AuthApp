@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import AuthEngine
-import AuthAppBusinessLogic
+import AuthAppBusinessDomain
 
 struct AuthenticationView: View {
     @ObservedObject var viewModel: AuthenticationViewModel
@@ -43,29 +42,18 @@ struct AuthenticationView: View {
 }
 
 struct ButtonView: View {
-    let buttonType: ButtonType
-    let action: ((AuthType) -> Void)?
+    let buttonType: AuthAppButtonType
+    let action: ((AuthAppButtonType) -> Void)?
     var isSelected: Bool
 
     var body: some View {
         Button(buttonType.rawValue) {
-            action?(getAuthType(for: buttonType))
+            action?(buttonType)
         }
         .padding()
         .background(isSelected ? Color.red : Color.black)
         .foregroundColor(Color.white)
         .clipShape(Capsule())
-    }
-    
-    private func getAuthType(for buttonType: ButtonType) -> AuthType {
-        switch buttonType {
-        case .location:
-            return .location
-        case .photo:
-            return .photo
-        case .video:
-            return .video
-        }
     }
 }
 
@@ -99,12 +87,6 @@ struct ResetView: View {
         .foregroundColor(Color.white)
         .clipShape(Capsule())
     }
-}
-
-enum ButtonType: String {
-    case location = "Location"
-    case photo = "Photos"
-    case video = "Videos"
 }
 
 struct ContentView_Previews: PreviewProvider {

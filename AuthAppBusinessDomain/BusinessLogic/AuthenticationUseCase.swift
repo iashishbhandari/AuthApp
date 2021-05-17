@@ -5,22 +5,24 @@
 //  Created by Ashish Bhandari - TIL on 14/05/21.
 //
 
-import AuthEngine
+import Foundation
 
 public protocol AuthenticationUseCaseOutput {
-    func didComplete(for type: AuthType, result: Result<Bool, AuthError>)
+    associatedtype T
+
+    func didComplete(for type: AuthAppButtonType, result: Result<T, AuthAppError>)
 }
 
-public final class AuthenticationUseCase {
-    private var service: AuthenticationService
-    private var output: AuthenticationUseCaseOutput
+public final class AuthenticationUseCase<Service: AuthenticationService, Output: AuthenticationUseCaseOutput> where Service.Output == Output.T {
+    private var service: Service
+    private var output: Output
     
-    public init(service: AuthenticationService, output: AuthenticationUseCaseOutput) {
+    public init(service: Service, output: Output) {
         self.service = service
         self.output = output
     }
     
-    public func authenticate(_ type: AuthType) {
+    public func authenticate(_ type: AuthAppButtonType) {
         service.authenticate(type) {
             self.output.didComplete(for: type, result: $0)
         }

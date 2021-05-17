@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import AuthEngine
 @testable import AuthAppBusinessDomain
 
 class AuthenticationDataPresenterTest: XCTestCase {
@@ -44,9 +43,9 @@ class AuthenticationDataPresenterTest: XCTestCase {
         let output = AuthDataPresenterOutputSpy()
         let sut = AuthenticationDataPresenter(output: output)
         XCTAssertEqual(output.errors.count, 0)
-        sut.didComplete(for: .location, result: .failure(.invalidPolicy))
+        sut.didComplete(for: .location, result: .failure(.serviceError))
         XCTAssertEqual(output.errors.count, 1)
-        XCTAssertEqual(output.errors.first?.type, .invalidPolicy)
+        XCTAssertEqual(output.errors.first?.type, .serviceError)
         XCTAssertFalse(output.errors.first!.title.isEmpty)
         XCTAssertFalse(output.errors.first!.message.isEmpty)
     }
@@ -55,27 +54,27 @@ class AuthenticationDataPresenterTest: XCTestCase {
         let output = AuthDataPresenterOutputSpy()
         let sut = AuthenticationDataPresenter(output: output)
         XCTAssertEqual(output.errors.count, 0)
-        sut.didComplete(for: .location, result: .failure(.invalidPolicy))
-        sut.didComplete(for: .location, result: .failure(.invalidCredential))
+        sut.didComplete(for: .location, result: .failure(.serviceError))
+        sut.didComplete(for: .location, result: .failure(.unknown))
         XCTAssertEqual(output.errors.count, 2)
-        XCTAssertEqual(output.errors.first?.type, .invalidPolicy)
+        XCTAssertEqual(output.errors.first?.type, .serviceError)
         XCTAssertFalse(output.errors.first!.title.isEmpty)
         XCTAssertFalse(output.errors.first!.message.isEmpty)
-        XCTAssertEqual(output.errors.last?.type, .invalidCredential)
+        XCTAssertEqual(output.errors.last?.type, .unknown)
         XCTAssertFalse(output.errors.last!.title.isEmpty)
         XCTAssertFalse(output.errors.last!.message.isEmpty)
     }
 }
 
-final class AuthDataPresenterOutputSpy: AuthDataPresenterOutput {
+private final class AuthDataPresenterOutputSpy: AuthDataPresenterOutput {
     var results = [ResultViewModel]()
-    var errors = [(type: AuthError, title: String, message: String)]()
+    var errors = [(type: AuthAppError, title: String, message: String)]()
 
     func onSuccess(model: ResultViewModel) {
         results.append(model)
     }
     
-    func onFailure(error: (type: AuthError, title: String, message: String)) {
+    func onFailure(error: (type: AuthAppError, title: String, message: String)) {
         errors.append(error)
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import AuthEngine
 @testable import AuthAppBusinessDomain
 
 class AuthenticationUseCaseTest: XCTestCase {
@@ -26,29 +25,29 @@ class AuthenticationUseCaseTest: XCTestCase {
         var sut = AuthenticationUseCase(service: MockAuthenticationService.success, output: output)
         XCTAssertEqual(output.results.count, 0)
         sut.authenticate(.location)
-        sut = AuthenticationUseCase(service: MockAuthenticationService.failure(.invalidCredential), output: output)
+        sut = AuthenticationUseCase(service: MockAuthenticationService.failure(.serviceError), output: output)
         sut.authenticate(.photo)
         XCTAssertEqual(output.results.count, 2)
         XCTAssertEqual(output.results.first!.type, .location)
         XCTAssertEqual(output.results.first!.result, .success(true))
         XCTAssertEqual(output.results.last!.type, .photo)
-        XCTAssertEqual(output.results.last!.result, .failure(.invalidCredential))
+        XCTAssertEqual(output.results.last!.result, .failure(.serviceError))
     }
 }
 
 private final class AuthenticationUseCaseOutputSpy: AuthenticationUseCaseOutput {
-    var results = [(type: AuthType, result: Result<Bool, AuthError>)]()
+    var results = [(type: AuthAppButtonType, result: Result<Bool, AuthAppError>)]()
     
-    func didComplete(for type: AuthType, result: Result<Bool, AuthError>) {
+    func didComplete(for type: AuthAppButtonType, result: Result<Bool, AuthAppError>) {
         results.append((type: type, result: result))
     }
 }
 
 private enum MockAuthenticationService: AuthenticationService {
     case success
-    case failure(AuthError)
+    case failure(AuthAppError)
     
-    func authenticate(_ type: AuthType, completion: @escaping (Result<Bool, AuthError>) -> Void) {
+    func authenticate(_ type: AuthAppButtonType, completion: @escaping (Result<Bool, AuthAppError>) -> Void) {
         switch self {
         case .success:
             completion(.success(true))
