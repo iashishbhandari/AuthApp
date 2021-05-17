@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AuthAppBusinessLogic
+import AuthAppBusinessDomain
 
 enum AppViewType {
     case authenticater
