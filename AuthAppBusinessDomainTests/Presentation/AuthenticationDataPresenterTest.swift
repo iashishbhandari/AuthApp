@@ -7,7 +7,7 @@
 
 import XCTest
 import AuthEngine
-@testable import AuthAppBusinessLogic
+@testable import AuthAppBusinessDomain
 
 class AuthenticationDataPresenterTest: XCTestCase {
 

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import AuthAppBusinessLogic
+@testable import AuthAppBusinessDomain
 
 class FinishLoaderUseCaseTest: XCTestCase {
 

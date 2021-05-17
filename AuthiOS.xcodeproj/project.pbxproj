@@ -21,8 +21,8 @@
 		287EBEA72651403D00632D33 /* ResetAuthStateUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EBEA62651403D00632D33 /* ResetAuthStateUseCaseTest.swift */; };
 		287EBEB2265144B700632D33 /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287EBEB1265144B700632D33 /* AuthEngine.framework */; };
 		287EBEB3265144B700632D33 /* AuthEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287EBEB1265144B700632D33 /* AuthEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		287EBEB7265144C300632D33 /* AuthAppBusinessLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessLogic.framework */; };
-		287EBEB8265144C300632D33 /* AuthAppBusinessLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		287EBEB7265144C300632D33 /* AuthAppBusinessDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */; };
+		287EBEB8265144C300632D33 /* AuthAppBusinessDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28836856265030140059AB38 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836855265030140059AB38 /* AppConstants.swift */; };
 		28836858265053830059AB38 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836857265053830059AB38 /* NavigationView.swift */; };
 		2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883685D26506F8E0059AB38 /* LoaderViewModel.swift */; };
@@ -60,7 +60,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				287EBEB3265144B700632D33 /* AuthEngine.framework in Embed Frameworks */,
-				287EBEB8265144C300632D33 /* AuthAppBusinessLogic.framework in Embed Frameworks */,
+				287EBEB8265144C300632D33 /* AuthAppBusinessDomain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,9 +92,9 @@
 		28B1AA36264E4392007B5F49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28B1AA39264E4392007B5F49 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28B1AA3B264E4392007B5F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28DC4BA22650F95E004C6A6C /* AuthAppBusinessLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthAppBusinessLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthAppBusinessDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DC4BA52650F95E004C6A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28DC4BAA2650F95E004C6A6C /* AuthAppBusinessLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthAppBusinessLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28DC4BAA2650F95E004C6A6C /* AuthAppBusinessDomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthAppBusinessDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28DC4BB12650F95E004C6A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28DC4BCC2650FFEC004C6A6C /* AuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
 		28DC4BD526510091004C6A6C /* AuthenticationServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceTest.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				287EBEB2265144B700632D33 /* AuthEngine.framework in Frameworks */,
-				287EBEB7265144C300632D33 /* AuthAppBusinessLogic.framework in Frameworks */,
+				287EBEB7265144C300632D33 /* AuthAppBusinessDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				28B1AA31264E4391007B5F49 /* AuthiOS */,
-				28DC4BA32650F95E004C6A6C /* AuthAppBusinessLogic */,
-				28DC4BAE2650F95E004C6A6C /* AuthAppBusinessLogicTests */,
+				28DC4BA32650F95E004C6A6C /* AuthAppBusinessDomain */,
+				28DC4BAE2650F95E004C6A6C /* AuthAppBusinessDomainTests */,
 				28B1AA30264E4391007B5F49 /* Products */,
 				283E6C65264E9696003AFE48 /* Frameworks */,
 			);
@@ -211,8 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				28B1AA2F264E4391007B5F49 /* AuthiOS.app */,
-				28DC4BA22650F95E004C6A6C /* AuthAppBusinessLogic.framework */,
-				28DC4BAA2650F95E004C6A6C /* AuthAppBusinessLogicTests.xctest */,
+				28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */,
+				28DC4BAA2650F95E004C6A6C /* AuthAppBusinessDomainTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		28DC4BA32650F95E004C6A6C /* AuthAppBusinessLogic */ = {
+		28DC4BA32650F95E004C6A6C /* AuthAppBusinessDomain */ = {
 			isa = PBXGroup;
 			children = (
 				283E6C37264E8693003AFE48 /* BusinessLogic */,
@@ -245,10 +245,10 @@
 				283E6C41264E8BE8003AFE48 /* Service */,
 				28DC4BA52650F95E004C6A6C /* Info.plist */,
 			);
-			path = AuthAppBusinessLogic;
+			path = AuthAppBusinessDomain;
 			sourceTree = "<group>";
 		};
-		28DC4BAE2650F95E004C6A6C /* AuthAppBusinessLogicTests */ = {
+		28DC4BAE2650F95E004C6A6C /* AuthAppBusinessDomainTests */ = {
 			isa = PBXGroup;
 			children = (
 				28DC4BD226510057004C6A6C /* BusinessLogic */,
@@ -256,7 +256,7 @@
 				28DC4BD426510074004C6A6C /* Service */,
 				28DC4BB12650F95E004C6A6C /* Info.plist */,
 			);
-			path = AuthAppBusinessLogicTests;
+			path = AuthAppBusinessDomainTests;
 			sourceTree = "<group>";
 		};
 		28DC4BD226510057004C6A6C /* BusinessLogic */ = {
@@ -317,9 +317,9 @@
 			productReference = 28B1AA2F264E4391007B5F49 /* AuthiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		28DC4BA12650F95E004C6A6C /* AuthAppBusinessLogic */ = {
+		28DC4BA12650F95E004C6A6C /* AuthAppBusinessDomain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28DC4BB72650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessLogic" */;
+			buildConfigurationList = 28DC4BB72650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessDomain" */;
 			buildPhases = (
 				28DC4B9D2650F95E004C6A6C /* Headers */,
 				28DC4B9E2650F95E004C6A6C /* Sources */,
@@ -330,14 +330,14 @@
 			);
 			dependencies = (
 			);
-			name = AuthAppBusinessLogic;
+			name = AuthAppBusinessDomain;
 			productName = AuthAppBusinessLogic;
-			productReference = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessLogic.framework */;
+			productReference = 28DC4BA22650F95E004C6A6C /* AuthAppBusinessDomain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		28DC4BA92650F95E004C6A6C /* AuthAppBusinessLogicTests */ = {
+		28DC4BA92650F95E004C6A6C /* AuthAppBusinessDomainTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28DC4BB82650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessLogicTests" */;
+			buildConfigurationList = 28DC4BB82650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessDomainTests" */;
 			buildPhases = (
 				28DC4BA62650F95E004C6A6C /* Sources */,
 				28DC4BA72650F95E004C6A6C /* Frameworks */,
@@ -348,9 +348,9 @@
 			dependencies = (
 				28DC4BAD2650F95E004C6A6C /* PBXTargetDependency */,
 			);
-			name = AuthAppBusinessLogicTests;
+			name = AuthAppBusinessDomainTests;
 			productName = AuthAppBusinessLogicTests;
-			productReference = 28DC4BAA2650F95E004C6A6C /* AuthAppBusinessLogicTests.xctest */;
+			productReference = 28DC4BAA2650F95E004C6A6C /* AuthAppBusinessDomainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -388,8 +388,8 @@
 			projectRoot = "";
 			targets = (
 				28B1AA2E264E4391007B5F49 /* AuthiOS */,
-				28DC4BA12650F95E004C6A6C /* AuthAppBusinessLogic */,
-				28DC4BA92650F95E004C6A6C /* AuthAppBusinessLogicTests */,
+				28DC4BA12650F95E004C6A6C /* AuthAppBusinessDomain */,
+				28DC4BA92650F95E004C6A6C /* AuthAppBusinessDomainTests */,
 			);
 		};
 /* End PBXProject section */
@@ -467,12 +467,12 @@
 /* Begin PBXTargetDependency section */
 		287EBEBA265144C300632D33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 28DC4BA12650F95E004C6A6C /* AuthAppBusinessLogic */;
+			target = 28DC4BA12650F95E004C6A6C /* AuthAppBusinessDomain */;
 			targetProxy = 287EBEB9265144C300632D33 /* PBXContainerItemProxy */;
 		};
 		28DC4BAD2650F95E004C6A6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 28DC4BA12650F95E004C6A6C /* AuthAppBusinessLogic */;
+			target = 28DC4BA12650F95E004C6A6C /* AuthAppBusinessDomain */;
 			targetProxy = 28DC4BAC2650F95E004C6A6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -653,7 +653,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_TESTABILITY = YES;
-				INFOPLIST_FILE = AuthAppBusinessLogic/Info.plist;
+				INFOPLIST_FILE = AuthAppBusinessDomain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -663,7 +663,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessLogic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessDomain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -685,7 +685,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_TESTABILITY = NO;
-				INFOPLIST_FILE = AuthAppBusinessLogic/Info.plist;
+				INFOPLIST_FILE = AuthAppBusinessDomain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -695,7 +695,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessLogic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessDomain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -713,7 +713,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = AuthAppBusinessLogicTests/Info.plist;
+				INFOPLIST_FILE = AuthAppBusinessDomainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -721,7 +721,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessLogicTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessDomainTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -736,7 +736,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = AuthAppBusinessLogicTests/Info.plist;
+				INFOPLIST_FILE = AuthAppBusinessDomainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -744,7 +744,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessLogicTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashishplus.AuthAppBusinessDomainTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -772,7 +772,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28DC4BB72650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessLogic" */ = {
+		28DC4BB72650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessDomain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28DC4BB32650F95E004C6A6C /* Debug */,
@@ -781,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28DC4BB82650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessLogicTests" */ = {
+		28DC4BB82650F95E004C6A6C /* Build configuration list for PBXNativeTarget "AuthAppBusinessDomainTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28DC4BB52650F95E004C6A6C /* Debug */,

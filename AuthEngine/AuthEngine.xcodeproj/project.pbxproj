@@ -83,11 +83,11 @@
 		2830389A264D457100C3DDCA /* AuthEngine */ = {
 			isa = PBXGroup;
 			children = (
-				2830389C264D457100C3DDCA /* Info.plist */,
-				283038BA264D469C00C3DDCA /* AuthFlow.swift */,
-				283038BE264D9A1D00C3DDCA /* AuthDelegate.swift */,
 				283038C2264D9A6C00C3DDCA /* AuthContext.swift */,
+				283038BE264D9A1D00C3DDCA /* AuthDelegate.swift */,
+				283038BA264D469C00C3DDCA /* AuthFlow.swift */,
 				283E6C7C264EF447003AFE48 /* AuthPolicy.swift */,
+				2830389C264D457100C3DDCA /* Info.plist */,
 			);
 			path = AuthEngine;
 			sourceTree = "<group>";

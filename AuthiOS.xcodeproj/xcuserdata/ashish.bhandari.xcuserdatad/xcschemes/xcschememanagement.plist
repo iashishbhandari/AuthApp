@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AuthAppBusinessLogic.xcscheme_^#shared#^_</key>
+		<key>AuthAppBusinessDomain.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>AuthiOS.xcscheme_^#shared#^_</key>
 		<dict>
