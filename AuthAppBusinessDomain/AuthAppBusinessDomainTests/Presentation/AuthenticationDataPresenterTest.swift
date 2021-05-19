@@ -65,16 +65,3 @@ class AuthenticationDataPresenterTest: XCTestCase {
         XCTAssertFalse(output.errors.last!.message.isEmpty)
     }
 }
-
-private final class AuthDataPresenterOutputSpy: AuthDataPresenterOutput {
-    var results = [ResultViewModel]()
-    var errors = [(type: AuthAppError, title: String, message: String)]()
-
-    func onSuccess(model: ResultViewModel) {
-        results.append(model)
-    }
-    
-    func onFailure(error: (type: AuthAppError, title: String, message: String)) {
-        errors.append(error)
-    }
-}
