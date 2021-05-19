@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2891B59D26556174007D7DBD /* AuthAppBusinessDomainIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2891B59C26556174007D7DBD /* AuthAppBusinessDomainIntegrationTest.swift */; };
+		2891B5A22655618D007D7DBD /* MockAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2891B5A12655618D007D7DBD /* MockAuthenticationService.swift */; };
+		2891B5A7265561A5007D7DBD /* AuthDataPresenterOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2891B5A6265561A5007D7DBD /* AuthDataPresenterOutputSpy.swift */; };
 		28B6EA542655436600263D7B /* AuthAppBusinessDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA4A2655436600263D7B /* AuthAppBusinessDomain.framework */; };
 		28B6EA702655443800263D7B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA692655443800263D7B /* AuthenticationService.swift */; };
 		28B6EA712655443800263D7B /* ResetAuthStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA6B2655443800263D7B /* ResetAuthStateUseCase.swift */; };
@@ -20,9 +23,6 @@
 		28B6EA852655444400263D7B /* AuthenticationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */; };
 		28B6EA8F26554B3100263D7B /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA8E26554B3100263D7B /* AuthEngine.framework */; };
 		28B6EA9026554B3100263D7B /* AuthEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA8E26554B3100263D7B /* AuthEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		28B6EA9D26554F3C00263D7B /* AuthAppBusinessDomainIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA9C26554F3C00263D7B /* AuthAppBusinessDomainIntegrationTest.swift */; };
-		28B6EAA02655502D00263D7B /* AuthDataPresenterOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA9F2655502D00263D7B /* AuthDataPresenterOutputSpy.swift */; };
-		28B6EAA9265559C600263D7B /* MockAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EAA8265559C600263D7B /* MockAuthenticationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2891B59C26556174007D7DBD /* AuthAppBusinessDomainIntegrationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAppBusinessDomainIntegrationTest.swift; sourceTree = "<group>"; };
+		2891B5A12655618D007D7DBD /* MockAuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthenticationService.swift; sourceTree = "<group>"; };
+		2891B5A6265561A5007D7DBD /* AuthDataPresenterOutputSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDataPresenterOutputSpy.swift; sourceTree = "<group>"; };
 		28B6EA4A2655436600263D7B /* AuthAppBusinessDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthAppBusinessDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B6EA4E2655436600263D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B6EA532655436600263D7B /* AuthAppBusinessDomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthAppBusinessDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,9 +68,6 @@
 		28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishLoaderUseCaseTest.swift; sourceTree = "<group>"; };
 		28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
 		28B6EA8E26554B3100263D7B /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		28B6EA9C26554F3C00263D7B /* AuthAppBusinessDomainIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthAppBusinessDomainIntegrationTest.swift; path = ../../../../Documents/AuthAppBusinessDomainIntegrationTest.swift; sourceTree = "<group>"; };
-		28B6EA9F2655502D00263D7B /* AuthDataPresenterOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthDataPresenterOutputSpy.swift; path = ../../../../../Documents/AuthDataPresenterOutputSpy.swift; sourceTree = "<group>"; };
-		28B6EAA8265559C600263D7B /* MockAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockAuthenticationService.swift; path = ../../../../../Documents/MockAuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 		28B6EA572655436600263D7B /* AuthAppBusinessDomainTests */ = {
 			isa = PBXGroup;
 			children = (
-				28B6EA9C26554F3C00263D7B /* AuthAppBusinessDomainIntegrationTest.swift */,
+				2891B59C26556174007D7DBD /* AuthAppBusinessDomainIntegrationTest.swift */,
 				28B6EA7D2655444400263D7B /* BusinessLogic */,
 				28B6EA792655444400263D7B /* Presentation */,
 				28B6EA7B2655444400263D7B /* Service */,
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				28B6EA7A2655444400263D7B /* AuthenticationDataPresenterTest.swift */,
-				28B6EA9F2655502D00263D7B /* AuthDataPresenterOutputSpy.swift */,
+				2891B5A6265561A5007D7DBD /* AuthDataPresenterOutputSpy.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				28B6EA7C2655444400263D7B /* AuthenticationServiceTest.swift */,
-				28B6EAA8265559C600263D7B /* MockAuthenticationService.swift */,
+				2891B5A12655618D007D7DBD /* MockAuthenticationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -314,12 +314,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2891B5A7265561A5007D7DBD /* AuthDataPresenterOutputSpy.swift in Sources */,
+				2891B59D26556174007D7DBD /* AuthAppBusinessDomainIntegrationTest.swift in Sources */,
 				28B6EA832655444400263D7B /* ResetAuthStateUseCaseTest.swift in Sources */,
 				28B6EA852655444400263D7B /* AuthenticationUseCaseTest.swift in Sources */,
-				28B6EAA02655502D00263D7B /* AuthDataPresenterOutputSpy.swift in Sources */,
-				28B6EA9D26554F3C00263D7B /* AuthAppBusinessDomainIntegrationTest.swift in Sources */,
 				28B6EA842655444400263D7B /* FinishLoaderUseCaseTest.swift in Sources */,
-				28B6EAA9265559C600263D7B /* MockAuthenticationService.swift in Sources */,
+				2891B5A22655618D007D7DBD /* MockAuthenticationService.swift in Sources */,
 				28B6EA812655444400263D7B /* AuthenticationDataPresenterTest.swift in Sources */,
 				28B6EA822655444400263D7B /* AuthenticationServiceTest.swift in Sources */,
 			);
