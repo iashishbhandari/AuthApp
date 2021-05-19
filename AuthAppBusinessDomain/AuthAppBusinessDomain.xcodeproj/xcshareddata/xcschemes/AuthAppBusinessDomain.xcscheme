@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "28DC4BA12650F95E004C6A6C"
+               BlueprintIdentifier = "28B6EA492655436600263D7B"
                BuildableName = "AuthAppBusinessDomain.framework"
                BlueprintName = "AuthAppBusinessDomain"
-               ReferencedContainer = "container:AuthiOS.xcodeproj">
+               ReferencedContainer = "container:AuthAppBusinessDomain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "28DC4BA12650F95E004C6A6C"
+            BlueprintIdentifier = "28B6EA492655436600263D7B"
             BuildableName = "AuthAppBusinessDomain.framework"
             BlueprintName = "AuthAppBusinessDomain"
-            ReferencedContainer = "container:AuthiOS.xcodeproj">
+            ReferencedContainer = "container:AuthAppBusinessDomain.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -43,10 +43,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "28DC4BA92650F95E004C6A6C"
+               BlueprintIdentifier = "28B6EA522655436600263D7B"
                BuildableName = "AuthAppBusinessDomainTests.xctest"
                BlueprintName = "AuthAppBusinessDomainTests"
-               ReferencedContainer = "container:AuthiOS.xcodeproj">
+               ReferencedContainer = "container:AuthAppBusinessDomain.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,10 +71,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "28DC4BA12650F95E004C6A6C"
+            BlueprintIdentifier = "28B6EA492655436600263D7B"
             BuildableName = "AuthAppBusinessDomain.framework"
             BlueprintName = "AuthAppBusinessDomain"
-            ReferencedContainer = "container:AuthiOS.xcodeproj">
+            ReferencedContainer = "container:AuthAppBusinessDomain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

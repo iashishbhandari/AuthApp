@@ -5,6 +5,9 @@
       location = "group:AuthEngine/AuthEngine.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AuthAppBusinessDomain/AuthAppBusinessDomain.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:AuthiOS.xcodeproj">
    </FileRef>
 </Workspace>
