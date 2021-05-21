@@ -8,10 +8,6 @@
 import SwiftUI
 import AuthAppBusinessDomain
 
-protocol ViewComposerFactory {
-    func composedView(for type: AppViewType) -> AnyView
-}
-
 final class iOSSwiftUIViewComposerFactory: ViewComposerFactory {
     func composedView(for viewType: AppViewType) -> AnyView {
         switch viewType {

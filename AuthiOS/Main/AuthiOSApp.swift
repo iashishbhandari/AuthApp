@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct AuthiOSApp: App {
-    static var navigationAdapter = AuthAppNavigationAdapter(navigation: AppNavigationStore(factory: iOSSwiftUIViewComposerFactory()))
+    static var navigationAdapter = AuthAppNavigationAdapter(navigation: AppNavigationStore())
 
     var body: some Scene {
         WindowGroup {
