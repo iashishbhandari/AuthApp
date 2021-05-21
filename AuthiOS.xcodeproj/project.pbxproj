@@ -15,6 +15,7 @@
 		28836856265030140059AB38 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836855265030140059AB38 /* AppConstants.swift */; };
 		28836858265053830059AB38 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836857265053830059AB38 /* NavigationView.swift */; };
 		2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883685D26506F8E0059AB38 /* LoaderViewModel.swift */; };
+		289B68452658089B00503C30 /* ViewComposerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289B68442658089B00503C30 /* ViewComposerFactory.swift */; };
 		28B1AA33264E4391007B5F49 /* AuthiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1AA32264E4391007B5F49 /* AuthiOSApp.swift */; };
 		28B1AA35264E4391007B5F49 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1AA34264E4391007B5F49 /* AuthenticationView.swift */; };
 		28B1AA37264E4392007B5F49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1AA36264E4392007B5F49 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		28836855265030140059AB38 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		28836857265053830059AB38 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		2883685D26506F8E0059AB38 /* LoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewModel.swift; sourceTree = "<group>"; };
+		289B68442658089B00503C30 /* ViewComposerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewComposerFactory.swift; sourceTree = "<group>"; };
 		28B1AA2F264E4391007B5F49 /* AuthiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B1AA32264E4391007B5F49 /* AuthiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthiOSApp.swift; sourceTree = "<group>"; };
 		28B1AA34264E4391007B5F49 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
@@ -88,9 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				28B1AA32264E4391007B5F49 /* AuthiOSApp.swift */,
-				287EBE8E265133D500632D33 /* AuthAppNavigationAdapter.swift */,
 				283E6C52264E93A8003AFE48 /* AppNavigationStore.swift */,
+				287EBE8E265133D500632D33 /* AuthAppNavigationAdapter.swift */,
 				287EBE922651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift */,
+				289B68442658089B00503C30 /* ViewComposerFactory.swift */,
 				28B1AA3B264E4392007B5F49 /* Info.plist */,
 			);
 			path = Main;
@@ -228,6 +231,7 @@
 				28B1AA35264E4391007B5F49 /* AuthenticationView.swift in Sources */,
 				28836858265053830059AB38 /* NavigationView.swift in Sources */,
 				283E6C4D264E9212003AFE48 /* LoaderView.swift in Sources */,
+				289B68452658089B00503C30 /* ViewComposerFactory.swift in Sources */,
 				28B1AA33264E4391007B5F49 /* AuthiOSApp.swift in Sources */,
 				287EBE932651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift in Sources */,
 				283E6C94264F202A003AFE48 /* AuthenticationViewModel.swift in Sources */,

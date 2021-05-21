@@ -23,6 +23,6 @@ struct NavigationView: View {
 
 struct NavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView(store: AppNavigationStore(factory: iOSSwiftUIViewComposerFactory()))
+        NavigationView(store: AppNavigationStore())
     }
 }
