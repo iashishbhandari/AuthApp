@@ -5,25 +5,25 @@
 //  Created by Ashish Bhandari - TIL on 16/05/21.
 //
 
-import SwiftUI
 import AuthAppBusinessDomain
 
-final class iOSSwiftUIViewComposerFactory: ViewComposerFactory {
-    func composedView(for viewType: AppViewType) -> AnyView {
+final class iOSSwiftUIViewComposerFactory: AppViewComposerFactory {
+    func composedViewModel(for viewType: AppViewType, delegate: AppDelegate) -> AppViewModel {
         switch viewType {
         case .authenticater:
             let viewModel = AuthenticationViewModel()
             let presenter = AuthenticationDataPresenter(output: viewModel)
             let useCase = AuthenticationUseCase(service: RemoteAuthenticationService(), output: presenter)
             viewModel.handler = useCase.authenticate(_:)
-            let resetUseCase = ResetAuthStateUseCase(output: AuthiOSApp.navigationAdapter)
+            let resetUseCase = ResetAuthStateUseCase(output: delegate)
             viewModel.resetAction = resetUseCase.reset
-            return AnyView(AuthenticationView(viewModel: viewModel))
+            return .authenticater(viewModel)
+            
         case .loader:
             let viewModel = LoaderViewModel()
-            let useCase = FinishLoaderUseCase(output: AuthiOSApp.navigationAdapter)
+            let useCase = FinishLoaderUseCase(output: delegate)
             viewModel.handler = useCase.complete
-            return AnyView(LoaderView(viewModel: viewModel))
+            return .loader(viewModel)
         }
     }
 }

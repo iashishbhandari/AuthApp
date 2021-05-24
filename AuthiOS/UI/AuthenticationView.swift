@@ -9,18 +9,21 @@ import SwiftUI
 import AuthAppBusinessDomain
 
 struct AuthenticationView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @ObservedObject var viewModel: AuthenticationViewModel
 
     var body: some View {
         VStack {
             Spacer()
-            HStack {
-                ButtonView(buttonType: .location, action: viewModel.handler, isSelected: viewModel.isSelected(type: .location))
-                ButtonView(buttonType: .photo, action: viewModel.handler, isSelected: viewModel.isSelected(type: .photo))
-                ButtonView(buttonType: .video, action: viewModel.handler, isSelected: viewModel.isSelected(type: .video))
+            if horizontalSizeClass == .compact {
+                VStack {
+                    GroupButtonsView(viewModel: viewModel)
+                }
+            } else {
+                HStack {
+                    GroupButtonsView(viewModel: viewModel)
+                }
             }
-            .disabled(viewModel.isAuthorised)
-            .padding()
             ResultView(viewModel: $viewModel.resultViewModel)
             if viewModel.isAuthorised {
                 Spacer()
@@ -38,6 +41,20 @@ struct AuthenticationView: View {
         .alert(isPresented: $viewModel.alertInfo.isPresented) { () -> Alert in
             Alert(title: Text(viewModel.alertInfo.title), message: Text(viewModel.alertInfo.message), dismissButton: .default(Text("Ok")))
         }
+    }
+}
+
+struct GroupButtonsView: View {
+    @ObservedObject var viewModel: AuthenticationViewModel
+
+    var body: some View {
+        Group {
+            ButtonView(buttonType: .location, action: viewModel.handler, isSelected: viewModel.isSelected(type: .location))
+            ButtonView(buttonType: .photo, action: viewModel.handler, isSelected: viewModel.isSelected(type: .photo))
+            ButtonView(buttonType: .video, action: viewModel.handler, isSelected: viewModel.isSelected(type: .video))
+        }
+        .disabled(viewModel.isAuthorised)
+        .padding()
     }
 }
 
