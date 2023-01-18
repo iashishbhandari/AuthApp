@@ -26,10 +26,22 @@ final class AuthenticationViewModel: ObservableObject {
 
 extension AuthenticationViewModel: AuthDataPresenterOutput {
     func onSuccess(model: ResultViewModel) {
-        resultViewModel = model
+        runOnMainThread {
+            self.resultViewModel = model
+        }
     }
     
     func onFailure(error: (type: AuthAppError, title: String, message: String)) {
-        alertInfo = (error.title, error.message, "Ok", true)
+        runOnMainThread {
+            self.alertInfo = (error.title, error.message, "Ok", true)
+        }
+    }
+    
+    private func runOnMainThread(execute: @escaping () -> Void) {
+        if Thread.isMainThread {
+            execute()
+        } else {
+            DispatchQueue.main.async { execute() }
+        }
     }
 }

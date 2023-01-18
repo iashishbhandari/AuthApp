@@ -22,6 +22,7 @@
 		28B1AA3A264E4392007B5F49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1AA39264E4392007B5F49 /* Preview Assets.xcassets */; };
 		28B6EA9526554D2700263D7B /* AuthAppBusinessDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA9426554D2700263D7B /* AuthAppBusinessDomain.framework */; };
 		28B6EA9626554D2700263D7B /* AuthAppBusinessDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA9426554D2700263D7B /* AuthAppBusinessDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75F864272978370B00D11B00 /* AuthenticationDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F864262978370B00D11B00 /* AuthenticationDataPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 		28B1AA39264E4392007B5F49 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28B1AA3B264E4392007B5F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B6EA9426554D2700263D7B /* AuthAppBusinessDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthAppBusinessDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F864262978370B00D11B00 /* AuthenticationDataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				2883685426502FFA0059AB38 /* Helper */,
 				283E6C3A264E86F3003AFE48 /* Main */,
+				75F864222978363F00D11B00 /* Presentation */,
 				283E6C39264E86D9003AFE48 /* UI */,
 				28B1AA36264E4392007B5F49 /* Assets.xcassets */,
 				28B1AA38264E4392007B5F49 /* Preview Content */,
@@ -155,6 +158,14 @@
 				28B1AA39264E4392007B5F49 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		75F864222978363F00D11B00 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				75F864262978370B00D11B00 /* AuthenticationDataPresenter.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			files = (
 				2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */,
 				28B1AA35264E4391007B5F49 /* AuthenticationView.swift in Sources */,
+				75F864272978370B00D11B00 /* AuthenticationDataPresenter.swift in Sources */,
 				28836858265053830059AB38 /* NavigationView.swift in Sources */,
 				283E6C4D264E9212003AFE48 /* LoaderView.swift in Sources */,
 				289B68452658089B00503C30 /* ViewComposerFactory.swift in Sources */,
