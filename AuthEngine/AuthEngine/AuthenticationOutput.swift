@@ -13,7 +13,7 @@ public protocol AuthenticationOutput {
 }
 
 public enum AuthType: Hashable {
-    case device(LAContext)
+    case device(LAContext = LAContext())
     case remote
 }
 

@@ -5,8 +5,8 @@
 //  Created by Ashish Bhandari - TIL on 14/05/21.
 //
 
-import SwiftUI
 import AuthAppBusinessDomain
+import SwiftUI
 
 struct AuthenticationView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -50,9 +50,9 @@ struct GroupButtonsView: View {
     var body: some View {
         Group {
             if viewModel.isAuthorised {
-                ButtonView(buttonType: .login, action: viewModel.handler, isSelected: viewModel.isSelected(type: .login))
+                ButtonView(buttonType: .login, action: viewModel.handler)
             } else {
-                ButtonView(buttonType: .unlock, action: viewModel.handler, isSelected: viewModel.isSelected(type: .unlock))
+                ButtonView(buttonType: .unlock, action: viewModel.handler)
             }
         }
         .disabled(viewModel.isAuthorised)
@@ -63,14 +63,13 @@ struct GroupButtonsView: View {
 struct ButtonView: View {
     let buttonType: AuthAppButtonType
     let action: ((AuthAppButtonType) -> Void)?
-    var isSelected: Bool
 
     var body: some View {
         Button(buttonType.rawValue) {
             action?(buttonType)
         }
         .padding()
-        .background(isSelected ? Color.red : Color.black)
+        .background(Color.red)
         .foregroundColor(Color.white)
         .clipShape(Capsule())
     }

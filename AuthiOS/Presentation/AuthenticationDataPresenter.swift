@@ -9,11 +9,9 @@ import AuthAppBusinessDomain
 
 struct ResultViewModel {
     private(set) public var isAuthorised: Bool
-    private(set) public var type: AuthAppButtonType?
     
-    public init(isAuthorised: Bool = false, type: AuthAppButtonType? = nil) {
+    public init(isAuthorised: Bool = false) {
         self.isAuthorised = isAuthorised
-        self.type = type
     }
     
     public var imageName: String {
@@ -38,14 +36,13 @@ final class AuthenticationDataPresenter {
 }
 
 extension AuthenticationDataPresenter: AuthenticationUseCaseOutput {
-    func didComplete(for type: AuthAppButtonType, result: Result<AuthAppModel, AuthAppError>) {
+    func didComplete(result: Result<AuthAppModel, AuthAppError>) {
         switch result {
         case .success(let model):
-            output.onSuccess(model: ResultViewModel(isAuthorised: !model.token.isEmpty, type: type))
+            output.onSuccess(model: ResultViewModel(isAuthorised: !model.token.isEmpty))
 
         case .failure(let error):
             output.onFailure(error: (type: error, title: "Opps", message: error.localizedDescription))
         }
     }
 }
-

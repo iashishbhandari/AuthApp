@@ -5,8 +5,8 @@
 //  Created by Ashish Bhandari - TIL on 16/05/21.
 //
 
-import SwiftUI
 import AuthAppBusinessDomain
+import SwiftUI
 
 final class AuthAppNavigationAdapter<Factory: AppViewComposerFactory> {
     private var factory: Factory

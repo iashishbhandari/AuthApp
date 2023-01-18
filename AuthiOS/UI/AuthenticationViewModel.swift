@@ -5,8 +5,8 @@
 //  Created by Ashish Bhandari - TIL on 15/05/21.
 //
 
-import SwiftUI
 import AuthAppBusinessDomain
+import SwiftUI
 
 final class AuthenticationViewModel: ObservableObject {
     @Published var alertInfo: (title: String, message: String, buttonText: String, isPresented: Bool) = AppConstants.alertInfo
@@ -17,10 +17,6 @@ final class AuthenticationViewModel: ObservableObject {
 
     var isAuthorised: Bool {
         resultViewModel.isAuthorised
-    }
-    
-    func isSelected(type: AuthAppButtonType) -> Bool {
-        resultViewModel.type == type
     }
 }
 

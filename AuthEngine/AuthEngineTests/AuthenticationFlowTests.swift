@@ -36,7 +36,7 @@ class AuthenticationFlowTests: XCTestCase {
     }
     
     func test_flow_started_for_remote_authType_fails() {
-        let exp = self.expectation(description: "test_flow_started_for_remote_authType_fails")
+        let exp = self.expectation(description: "wait_for_remote_authentication")
         let (sut, output) = makeSUT() {
             exp.fulfill()
         }
@@ -51,7 +51,7 @@ class AuthenticationFlowTests: XCTestCase {
     }
     
     func test_flow_started_for_device_authType_passes() {
-        let exp = self.expectation(description: "test_flow_started_for_local_authType_passes")
+        let exp = self.expectation(description: "wait_for_device_authentication")
         let (sut, output) = makeSUT(type: .device(StubLAContext())) {
             exp.fulfill()
         }

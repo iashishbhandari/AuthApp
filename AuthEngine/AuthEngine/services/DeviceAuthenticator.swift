@@ -8,12 +8,11 @@
 import LocalAuthentication
 
 final class DeviceAuthenticator: AuthenticationSource {
-    private var authContext = LAContext()
+    private var authContext: LAContext
     private var authError: NSError?
     private var authPolicy: LAPolicy?
     
-    convenience init(authContext: LAContext) {
-        self.init()
+    init(authContext: LAContext = LAContext()) {
         self.authContext = authContext
     }
     
@@ -31,7 +30,7 @@ final class DeviceAuthenticator: AuthenticationSource {
     
     func authenticate(completion: @escaping (Result<Void, AuthError>) -> Void) {
         if authError == nil, let policy = authPolicy {
-            authContext.evaluatePolicy(policy, localizedReason: "LocalAuthPolicy") { success, error in
+            authContext.evaluatePolicy(policy, localizedReason: "unlock this device!") { success, error in
                 if success {
                     completion(.success(()))
                 } else {

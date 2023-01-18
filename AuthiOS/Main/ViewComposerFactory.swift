@@ -5,8 +5,8 @@
 //  Created by Ashish Bhandari - TIL on 21/05/21.
 //
 
-import SwiftUI
 import AuthAppBusinessDomain
+import SwiftUI
 
 typealias AppDelegate = FinishLoaderUseCaseOutput & ResetAuthStateUseCaseOutput
 
