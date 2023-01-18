@@ -13,7 +13,7 @@ final class iOSSwiftUIViewComposerFactory: AppViewComposerFactory {
         case .authenticater:
             let viewModel = AuthenticationViewModel()
             let presenter = AuthenticationDataPresenter(output: viewModel)
-            let useCase = AuthenticationUseCase(service: RemoteAuthenticationService(), output: presenter)
+            let useCase = AuthenticationUseCase(output: presenter)
             viewModel.handler = useCase.authenticate(_:)
             let resetUseCase = ResetAuthStateUseCase(output: delegate)
             viewModel.resetAction = resetUseCase.reset

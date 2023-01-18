@@ -7,10 +7,6 @@
 
 import Foundation
 
-public protocol ResetAuthStateUseCaseOutput {
-    func onResetAuthState()
-}
-
 final public class ResetAuthStateUseCase {
     private var output: ResetAuthStateUseCaseOutput
     
@@ -21,4 +17,8 @@ final public class ResetAuthStateUseCase {
     public func reset() {
         output.onResetAuthState()
     }
+}
+
+public protocol ResetAuthStateUseCaseOutput {
+    func onResetAuthState()
 }

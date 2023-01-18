@@ -9,7 +9,6 @@ import XCTest
 @testable import AuthAppBusinessDomain
 
 class FinishLoaderUseCaseTest: XCTestCase {
-
     func test_complete_once_resultsCounter_one() {
         let output = FinishLoaderUseCaseOutputSpy()
         let sut = FinishLoaderUseCase(output: output)

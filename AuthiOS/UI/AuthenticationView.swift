@@ -49,9 +49,11 @@ struct GroupButtonsView: View {
 
     var body: some View {
         Group {
-            ButtonView(buttonType: .location, action: viewModel.handler, isSelected: viewModel.isSelected(type: .location))
-            ButtonView(buttonType: .photo, action: viewModel.handler, isSelected: viewModel.isSelected(type: .photo))
-            ButtonView(buttonType: .video, action: viewModel.handler, isSelected: viewModel.isSelected(type: .video))
+            if viewModel.isAuthorised {
+                ButtonView(buttonType: .login, action: viewModel.handler, isSelected: viewModel.isSelected(type: .login))
+            } else {
+                ButtonView(buttonType: .unlock, action: viewModel.handler, isSelected: viewModel.isSelected(type: .unlock))
+            }
         }
         .disabled(viewModel.isAuthorised)
         .padding()
