@@ -7,10 +7,6 @@
 
 import Foundation
 
-public protocol FinishLoaderUseCaseOutput {
-    func onCompleteLoading()
-}
-
 public final class FinishLoaderUseCase {
     private var output: FinishLoaderUseCaseOutput
     
@@ -21,4 +17,8 @@ public final class FinishLoaderUseCase {
     public func complete() {
         output.onCompleteLoading()
     }
+}
+
+public protocol FinishLoaderUseCaseOutput {
+    func onCompleteLoading()
 }

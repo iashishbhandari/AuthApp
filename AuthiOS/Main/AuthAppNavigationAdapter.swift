@@ -8,20 +8,22 @@
 import SwiftUI
 import AuthAppBusinessDomain
 
-final class AuthAppNavigationAdapter {
-    private(set) var navigation: AppNavigationStore
+final class AuthAppNavigationAdapter<Factory: AppViewComposerFactory> {
+    private var factory: Factory
+    private var navigation: AppNavigation
     
-    init(navigation: AppNavigationStore) {
+    init(factory: Factory, navigation: AppNavigation) {
+        self.factory = factory
         self.navigation = navigation
     }
     
     func show(viewType: AppViewType, animated: Bool = true) {
         if animated {
             withAnimation {
-                navigation.viewType = viewType
+                navigation.viewType = factory.composedViewModel(for: viewType, delegate: self)
             }
         } else {
-            navigation.viewType = viewType
+            navigation.viewType = factory.composedViewModel(for: viewType, delegate: self)
         }
     }
 }

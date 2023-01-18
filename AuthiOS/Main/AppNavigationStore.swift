@@ -7,11 +7,21 @@
 
 import SwiftUI
 
-final class AppNavigationStore: ObservableObject {
-    @Published var viewType: AppViewType = .loader
-    @ViewFactory var factory = iOSSwiftUIViewComposerFactory()
+protocol AppNavigation {
+    var viewType: AppViewModel? {get set}
+}
+
+final class AppNavigationStore: ObservableObject, AppNavigation {
+    @Published var viewType: AppViewModel?
 
     var view: AnyView {
-        factory.composedView(for: viewType)
+        switch viewType {
+        case .authenticater(let model):
+            return AnyView(AuthenticationView(viewModel: model))
+        case .loader(let model):
+            return AnyView(LoaderView(viewModel: model))
+        case .none:
+            return AnyView(EmptyView())
+        }
     }
 }

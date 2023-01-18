@@ -9,11 +9,20 @@ import SwiftUI
 
 @main
 struct AuthiOSApp: App {
-    static var navigationAdapter = AuthAppNavigationAdapter(navigation: AppNavigationStore())
+    @StateObject var navigation = AppNavigationStore()
+    private var appStore = AuthAppStore()
 
     var body: some Scene {
         WindowGroup {
-            NavigationView(store: AuthiOSApp.navigationAdapter.navigation)
+            NavigationView(store: navigation)
+                .onAppear {
+                    appStore.adapter = AuthAppNavigationAdapter(factory: iOSSwiftUIViewComposerFactory(), navigation: navigation)
+                    appStore.adapter?.show(viewType: .loader)
+                }
         }
     }
+}
+
+class AuthAppStore {
+    var adapter: AuthAppNavigationAdapter<iOSSwiftUIViewComposerFactory>?
 }

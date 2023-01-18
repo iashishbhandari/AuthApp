@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		283038A2264D457100C3DDCA /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28303898264D457100C3DDCA /* AuthEngine.framework */; };
-		283038B7264D466600C3DDCA /* AuthFlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038B6264D466600C3DDCA /* AuthFlowTest.swift */; };
-		283038BB264D469C00C3DDCA /* AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038BA264D469C00C3DDCA /* AuthFlow.swift */; };
-		283038BF264D9A1D00C3DDCA /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038BE264D9A1D00C3DDCA /* AuthDelegate.swift */; };
-		283038C3264D9A6C00C3DDCA /* AuthContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038C2264D9A6C00C3DDCA /* AuthContext.swift */; };
-		283038C7264DA15F00C3DDCA /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038C6264DA15F00C3DDCA /* DelegateSpy.swift */; };
-		283038CB264DA1C300C3DDCA /* AuthContextIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038CA264DA1C300C3DDCA /* AuthContextIntegrationTest.swift */; };
-		283E6C7D264EF447003AFE48 /* AuthPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C7C264EF447003AFE48 /* AuthPolicy.swift */; };
-		28836851264FF2AD0059AB38 /* AuthPolicyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836850264FF2AD0059AB38 /* AuthPolicyTest.swift */; };
+		283038B7264D466600C3DDCA /* AuthenticationFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038B6264D466600C3DDCA /* AuthenticationFlowTests.swift */; };
+		283038BB264D469C00C3DDCA /* AuthenticationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038BA264D469C00C3DDCA /* AuthenticationFlow.swift */; };
+		283038BF264D9A1D00C3DDCA /* AuthenticationOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283038BE264D9A1D00C3DDCA /* AuthenticationOutput.swift */; };
+		283E6C7D264EF447003AFE48 /* AuthenticationSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C7C264EF447003AFE48 /* AuthenticationSource.swift */; };
+		75F864202978211000D11B00 /* DeviceAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8641F2978211000D11B00 /* DeviceAuthenticator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,14 +30,11 @@
 		2830389C264D457100C3DDCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		283038A1264D457100C3DDCA /* AuthEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		283038A8264D457100C3DDCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		283038B6264D466600C3DDCA /* AuthFlowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowTest.swift; sourceTree = "<group>"; };
-		283038BA264D469C00C3DDCA /* AuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlow.swift; sourceTree = "<group>"; };
-		283038BE264D9A1D00C3DDCA /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
-		283038C2264D9A6C00C3DDCA /* AuthContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthContext.swift; sourceTree = "<group>"; };
-		283038C6264DA15F00C3DDCA /* DelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSpy.swift; sourceTree = "<group>"; };
-		283038CA264DA1C300C3DDCA /* AuthContextIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthContextIntegrationTest.swift; sourceTree = "<group>"; };
-		283E6C7C264EF447003AFE48 /* AuthPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPolicy.swift; sourceTree = "<group>"; };
-		28836850264FF2AD0059AB38 /* AuthPolicyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPolicyTest.swift; sourceTree = "<group>"; };
+		283038B6264D466600C3DDCA /* AuthenticationFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlowTests.swift; sourceTree = "<group>"; };
+		283038BA264D469C00C3DDCA /* AuthenticationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlow.swift; sourceTree = "<group>"; };
+		283038BE264D9A1D00C3DDCA /* AuthenticationOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationOutput.swift; sourceTree = "<group>"; };
+		283E6C7C264EF447003AFE48 /* AuthenticationSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSource.swift; sourceTree = "<group>"; };
+		75F8641F2978211000D11B00 /* DeviceAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthenticator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +77,10 @@
 		2830389A264D457100C3DDCA /* AuthEngine */ = {
 			isa = PBXGroup;
 			children = (
-				283038C2264D9A6C00C3DDCA /* AuthContext.swift */,
-				283038BE264D9A1D00C3DDCA /* AuthDelegate.swift */,
-				283038BA264D469C00C3DDCA /* AuthFlow.swift */,
-				283E6C7C264EF447003AFE48 /* AuthPolicy.swift */,
+				75F8641E297820D200D11B00 /* services */,
+				283038BA264D469C00C3DDCA /* AuthenticationFlow.swift */,
+				283038BE264D9A1D00C3DDCA /* AuthenticationOutput.swift */,
+				283E6C7C264EF447003AFE48 /* AuthenticationSource.swift */,
 				2830389C264D457100C3DDCA /* Info.plist */,
 			);
 			path = AuthEngine;
@@ -95,13 +89,18 @@
 		283038A5264D457100C3DDCA /* AuthEngineTests */ = {
 			isa = PBXGroup;
 			children = (
+				283038B6264D466600C3DDCA /* AuthenticationFlowTests.swift */,
 				283038A8264D457100C3DDCA /* Info.plist */,
-				283038B6264D466600C3DDCA /* AuthFlowTest.swift */,
-				283038C6264DA15F00C3DDCA /* DelegateSpy.swift */,
-				283038CA264DA1C300C3DDCA /* AuthContextIntegrationTest.swift */,
-				28836850264FF2AD0059AB38 /* AuthPolicyTest.swift */,
 			);
 			path = AuthEngineTests;
+			sourceTree = "<group>";
+		};
+		75F8641E297820D200D11B00 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				75F8641F2978211000D11B00 /* DeviceAuthenticator.swift */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,10 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283038BF264D9A1D00C3DDCA /* AuthDelegate.swift in Sources */,
-				283E6C7D264EF447003AFE48 /* AuthPolicy.swift in Sources */,
-				283038BB264D469C00C3DDCA /* AuthFlow.swift in Sources */,
-				283038C3264D9A6C00C3DDCA /* AuthContext.swift in Sources */,
+				283038BF264D9A1D00C3DDCA /* AuthenticationOutput.swift in Sources */,
+				75F864202978211000D11B00 /* DeviceAuthenticator.swift in Sources */,
+				283E6C7D264EF447003AFE48 /* AuthenticationSource.swift in Sources */,
+				283038BB264D469C00C3DDCA /* AuthenticationFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,10 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283038B7264D466600C3DDCA /* AuthFlowTest.swift in Sources */,
-				28836851264FF2AD0059AB38 /* AuthPolicyTest.swift in Sources */,
-				283038C7264DA15F00C3DDCA /* DelegateSpy.swift in Sources */,
-				283038CB264DA1C300C3DDCA /* AuthContextIntegrationTest.swift in Sources */,
+				283038B7264D466600C3DDCA /* AuthenticationFlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +291,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -354,7 +350,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;

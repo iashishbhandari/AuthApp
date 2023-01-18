@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import AuthAppBusinessDomain
 
-protocol ViewComposerFactory {
-    func composedView(for type: AppViewType) -> AnyView
+typealias AppDelegate = FinishLoaderUseCaseOutput & ResetAuthStateUseCaseOutput
+
+protocol AppViewComposerFactory {
+    func composedViewModel(for viewType: AppViewType, delegate: AppDelegate) -> AppViewModel
 }
 
 enum AppViewType {
@@ -16,11 +19,7 @@ enum AppViewType {
     case loader
 }
 
-@propertyWrapper
-struct ViewFactory {
-    var wrappedValue: ViewComposerFactory
-    
-    init(wrappedValue: ViewComposerFactory) {
-        self.wrappedValue = wrappedValue
-    }
+enum AppViewModel {
+    case authenticater(AuthenticationViewModel)
+    case loader(LoaderViewModel)
 }

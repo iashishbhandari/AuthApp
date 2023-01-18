@@ -9,7 +9,6 @@ import XCTest
 @testable import AuthAppBusinessDomain
 
 class ResetAuthStateUseCaseTest: XCTestCase {
-
     func test_reset_once_sets_counter_one() {
         let output = ResetAuthStateUseCaseSpy()
         let sut = ResetAuthStateUseCase(output: output)

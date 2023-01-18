@@ -5,9 +5,9 @@
 //  Created by Ashish Bhandari - TIL on 14/05/21.
 //
 
-import Foundation
+import AuthAppBusinessDomain
 
-public struct ResultViewModel {
+struct ResultViewModel {
     private(set) public var isAuthorised: Bool
     private(set) public var type: AuthAppButtonType?
     
@@ -24,23 +24,12 @@ public struct ResultViewModel {
     }
 }
 
-public enum AuthAppButtonType: String {
-    case location = "Location"
-    case photo = "Photos"
-    case video = "Videos"
-}
-
-public enum AuthAppError: Error {
-    case serviceError
-    case unknown
-}
-
-public protocol AuthDataPresenterOutput {
+protocol AuthDataPresenterOutput {
     func onSuccess(model: ResultViewModel)
     func onFailure(error: (type: AuthAppError, title: String, message: String))
 }
 
-public final class AuthenticationDataPresenter {
+final class AuthenticationDataPresenter {
     private var output: AuthDataPresenterOutput
     
     public init(output: AuthDataPresenterOutput) {
@@ -49,10 +38,10 @@ public final class AuthenticationDataPresenter {
 }
 
 extension AuthenticationDataPresenter: AuthenticationUseCaseOutput {
-    public func didComplete(for type: AuthAppButtonType, result: Result<Bool, AuthAppError>) {
+    func didComplete(for type: AuthAppButtonType, result: Result<AuthAppModel, AuthAppError>) {
         switch result {
-        case .success(let authenticated):
-            output.onSuccess(model: ResultViewModel(isAuthorised: authenticated, type: type))
+        case .success(let model):
+            output.onSuccess(model: ResultViewModel(isAuthorised: !model.token.isEmpty, type: type))
 
         case .failure(let error):
             output.onFailure(error: (type: error, title: "Opps", message: error.localizedDescription))
