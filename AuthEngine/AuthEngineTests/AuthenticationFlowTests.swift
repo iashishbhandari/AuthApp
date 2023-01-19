@@ -10,13 +10,6 @@ import XCTest
 @testable import AuthEngine
 
 class AuthenticationFlowTests: XCTestCase {
-    private weak var weakSUT: AuthenticationFlow?
-    
-    override func tearDown() {
-        super.tearDown()
-        XCTAssertNil(weakSUT)
-    }
-    
     func test_flow_initialization_output_captures_none() {
         let (_, output) = makeSUT()
         XCTAssertEqual(output.results.count, 0)
@@ -66,10 +59,12 @@ class AuthenticationFlowTests: XCTestCase {
     }
     
     // MARK: Helpers
-    private func makeSUT(type: AuthType = .remote, callback: (() -> Void)? = nil) -> (AuthenticationFlow, AuthenticationOutputSpy) {
+    private func makeSUT(type: AuthType = .remote, callback: (() -> Void)? = nil, file: StaticString = #filePath, line: UInt = #line) -> (AuthenticationFlow, AuthenticationOutputSpy) {
         let output = AuthenticationOutputSpy(callback)
         let sut = AuthenticationFlow(authType: type, authOutput: output)
-        weakSUT = sut
+        addTeardownBlock { [weak sut] in
+            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
+        }
         return (sut, output)
     }
     
