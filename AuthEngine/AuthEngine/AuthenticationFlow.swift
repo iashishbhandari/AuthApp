@@ -17,18 +17,28 @@ final public class AuthenticationFlow {
     }
     
     public func start() {
+        var authSource: AuthenticationSource
         switch authType {
         case .device(let context):
-            let authSource = DeviceAuthenticator(authContext: context)
-            if authSource.canAuthenticate() {
-                authSource.authenticate { [authOutput, authType] in
-                    authOutput.didAuthenticate(type: authType, result: $0)
+            authSource = DeviceAuthenticator(authContext: context)
+            
+        case .credential(let authCredential):
+            authSource = AsynchonousCredentialAuthenticator(source: CredentialAuthenticator {
+                .init(userName: authCredential.username,
+                      password: authCredential.password)
+            })
+        }
+        if authSource.canAuthenticate() {
+            authSource.authenticate { [authOutput] in
+                switch $0 {
+                case .success(let authType):
+                    authOutput.didAuthenticate(result: .success(authType))
+                case .failure(let error):
+                    authOutput.didAuthenticate(result: .failure(error))
                 }
-            } else {
-                authOutput.didAuthenticate(type: authType, result: .failure(.invalidSource))
             }
-        case .remote:
-            authOutput.didAuthenticate(type: authType, result: .failure(.invalidSource))
+        } else {
+            authOutput.didAuthenticate(result: .failure(.invalidSource))
         }
     }
 }

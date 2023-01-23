@@ -19,26 +19,26 @@ final class DeviceAuthenticator: AuthenticationSource {
     func canAuthenticate() -> Bool {
         if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             self.authPolicy = .deviceOwnerAuthenticationWithBiometrics
-            return true
+            return authError == nil
         }
         if authContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
             self.authPolicy = .deviceOwnerAuthentication
-            return true
+            return authError == nil
         }
         return false
     }
     
-    func authenticate(completion: @escaping (Result<Void, AuthError>) -> Void) {
-        if authError == nil, let policy = authPolicy {
+    func authenticate(completion: @escaping (Result<AuthType, AuthError>) -> Void) {
+        if canAuthenticate(), let policy = authPolicy {
             authContext.evaluatePolicy(policy, localizedReason: "unlock this device!") { success, error in
                 if success {
-                    completion(.success(()))
+                    completion(.success(.device()))
                 } else {
                     completion(.failure(.invalidCredential))
                 }
             }
         } else {
-            completion(.failure(.invalidCredential))
+            completion(.failure(.invalidPolicy))
         }
     }
 }

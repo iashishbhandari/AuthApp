@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AuthenticationSource {
+public protocol AuthenticationSource {
     func canAuthenticate() -> Bool
-    func authenticate(completion: @escaping (Result<Void, AuthError>) -> Void)
+    func authenticate(completion: @escaping (Result<AuthType, AuthError>) -> Void)
 }
