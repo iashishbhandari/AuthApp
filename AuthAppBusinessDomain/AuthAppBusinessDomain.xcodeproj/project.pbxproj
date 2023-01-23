@@ -16,6 +16,8 @@
 		28B6EA852655444400263D7B /* AuthenticationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */; };
 		28B6EA8F26554B3100263D7B /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA8E26554B3100263D7B /* AuthEngine.framework */; };
 		28B6EA9026554B3100263D7B /* AuthEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA8E26554B3100263D7B /* AuthEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7554BD392981699A002D5442 /* AuthenticationDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554BD382981699A002D5442 /* AuthenticationDataPresenter.swift */; };
+		7554BD3D29816EEF002D5442 /* AuthenticationDataPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554BD3B29816EEE002D5442 /* AuthenticationDataPresenterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishLoaderUseCaseTest.swift; sourceTree = "<group>"; };
 		28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
 		28B6EA8E26554B3100263D7B /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7554BD382981699A002D5442 /* AuthenticationDataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenter.swift; sourceTree = "<group>"; };
+		7554BD3B29816EEE002D5442 /* AuthenticationDataPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 				28B6EA6D2655443800263D7B /* AuthenticationUseCase.swift */,
 				28B6EA6C2655443800263D7B /* FinishLoaderUseCase.swift */,
 				28B6EA6B2655443800263D7B /* ResetAuthStateUseCase.swift */,
+				7554BD372981697D002D5442 /* Presentation */,
 				28B6EA4E2655436600263D7B /* Info.plist */,
 			);
 			path = AuthAppBusinessDomain;
@@ -112,6 +117,7 @@
 				28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */,
 				28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */,
 				28B6EA7E2655444400263D7B /* ResetAuthStateUseCaseTest.swift */,
+				7554BD3A29816ED4002D5442 /* Presentation */,
 				28B6EA5A2655436600263D7B /* Info.plist */,
 			);
 			path = AuthAppBusinessDomainTests;
@@ -123,6 +129,22 @@
 				28B6EA8E26554B3100263D7B /* AuthEngine.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7554BD372981697D002D5442 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7554BD382981699A002D5442 /* AuthenticationDataPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		7554BD3A29816ED4002D5442 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7554BD3B29816EEE002D5442 /* AuthenticationDataPresenterTest.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +204,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					28B6EA492655436600263D7B = {
 						CreatedOnToolsVersion = 12.3;
@@ -235,6 +257,7 @@
 			files = (
 				28B6EA722655443800263D7B /* FinishLoaderUseCase.swift in Sources */,
 				28B6EA712655443800263D7B /* ResetAuthStateUseCase.swift in Sources */,
+				7554BD392981699A002D5442 /* AuthenticationDataPresenter.swift in Sources */,
 				28B6EA732655443800263D7B /* AuthenticationUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +268,7 @@
 			files = (
 				28B6EA832655444400263D7B /* ResetAuthStateUseCaseTest.swift in Sources */,
 				28B6EA852655444400263D7B /* AuthenticationUseCaseTest.swift in Sources */,
+				7554BD3D29816EEF002D5442 /* AuthenticationDataPresenterTest.swift in Sources */,
 				28B6EA842655444400263D7B /* FinishLoaderUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +319,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -360,6 +385,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -388,6 +414,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -413,6 +440,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -439,6 +467,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = AuthAppBusinessDomainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,6 +486,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = AuthAppBusinessDomainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

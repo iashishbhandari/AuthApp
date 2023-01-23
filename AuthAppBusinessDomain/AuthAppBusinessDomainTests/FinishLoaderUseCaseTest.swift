@@ -1,8 +1,5 @@
 //
-//  FinishLoaderUseCaseTest.swift
-//  AuthAppBusinessLogicTests
-//
-//  Created by Ashish Bhandari - TIL on 16/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import XCTest

@@ -1,16 +1,13 @@
 //
-//  AuthenticationView.swift
-//  AuthiOS
-//
-//  Created by Ashish Bhandari - TIL on 14/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import AuthAppBusinessDomain
 import SwiftUI
 
-struct AuthenticationView: View {
+struct LockedView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @ObservedObject var viewModel: AuthenticationViewModel
+    @ObservedObject var viewModel: LockedViewModel
 
     var body: some View {
         VStack {
@@ -24,10 +21,10 @@ struct AuthenticationView: View {
                     GroupButtonsView(viewModel: viewModel)
                 }
             }
-            ResultView(viewModel: $viewModel.resultViewModel)
+            LockedStatusView(viewModel: viewModel)
             if viewModel.isAuthorised {
                 Spacer()
-                ResetView {
+                ResetButtonView {
                     viewModel.resetAction?()
                 }
                 .padding(.bottom, 64)
@@ -38,45 +35,56 @@ struct AuthenticationView: View {
         .frame(minWidth: 300, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         .background(Color.blue)
         .ignoresSafeArea()
-        .alert(isPresented: $viewModel.alertInfo.isPresented) { () -> Alert in
-            Alert(title: Text(viewModel.alertInfo.title), message: Text(viewModel.alertInfo.message), dismissButton: .default(Text("Ok")))
-        }
     }
 }
 
 struct GroupButtonsView: View {
-    @ObservedObject var viewModel: AuthenticationViewModel
-
+    @ObservedObject var viewModel: LockedViewModel
+    
     var body: some View {
         Group {
             if viewModel.isAuthorised {
-                ButtonView(buttonType: .login, action: viewModel.handler)
+                ButtonView(buttonType: .signIn, buttonAction: viewModel.handler)
             } else {
-                ButtonView(buttonType: .unlock, action: viewModel.handler)
+                ButtonView(buttonType: .unlock, buttonAction: viewModel.handler)
             }
         }
-        .disabled(viewModel.isAuthorised)
         .padding()
     }
 }
 
 struct ButtonView: View {
-    let buttonType: AuthAppButtonType
-    let action: ((AuthAppButtonType) -> Void)?
+    enum ButtonType {
+        case unlock
+        case signIn
+    }
+    let buttonType: ButtonType
+    let buttonAction: (() -> Void)?
 
     var body: some View {
-        Button(buttonType.rawValue) {
-            action?(buttonType)
+        Button(getTitle(buttonType)) {
+            buttonAction?()
         }
         .padding()
         .background(Color.red)
         .foregroundColor(Color.white)
         .clipShape(Capsule())
     }
+    
+    private func getTitle(_ buttonType: ButtonType) -> String {
+        var title: String
+        switch buttonType {
+        case .unlock:
+            title = AppConstants.unlockButtonText
+        case .signIn:
+            title = AppConstants.signInButtonText
+        }
+        return title
+    }
 }
 
-struct ResultView: View {
-    @Binding var viewModel: ResultViewModel
+struct LockedStatusView: View {
+    let viewModel: LockedViewModel
     
     var body: some View {
         HStack {
@@ -84,7 +92,7 @@ struct ResultView: View {
                 .resizable()
                 .frame(width: 30, height: viewModel.isAuthorised ? 30 : 35, alignment: .center)
                 .padding(.top, 15)
-            Text(viewModel.resultText)
+            Text(viewModel.authStatusText)
                 .font(.body)
                 .padding(.top, 20)
                 .padding()
@@ -93,11 +101,11 @@ struct ResultView: View {
     }
 }
 
-struct ResetView: View {
+struct ResetButtonView: View {
     let action: (() -> Void)?
 
     var body: some View {
-        Button("RESET") {
+        Button(AppConstants.resetButtonText) {
             action?()
         }
         .padding()
@@ -109,6 +117,6 @@ struct ResetView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationView(viewModel: AuthenticationViewModel())
+        LockedView(viewModel: LockedViewModel())
     }
 }

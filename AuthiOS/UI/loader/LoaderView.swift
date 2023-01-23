@@ -1,8 +1,5 @@
 //
-//  LoaderView.swift
-//  AuthiOS
-//
-//  Created by Ashish Bhandari - TIL on 14/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import SwiftUI
@@ -12,7 +9,7 @@ struct LoaderView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "hourglass")
+            Image(systemName: AppConstants.loadingIcon)
                 .resizable()
                 .frame(width: 40, height: 50, alignment: .center)
                 .foregroundColor(.white)
@@ -20,7 +17,7 @@ struct LoaderView: View {
                 .animation(viewModel.isAnimating ? viewModel.foreverAnimation : .default)
                 .onAppear { viewModel.isAnimating = true }
                 .onDisappear { viewModel.isAnimating = false }
-            Text("Loading...")
+            Text(AppConstants.loadingText)
                 .font(.title2)
                 .foregroundColor(.white)
                 .padding()

@@ -1,8 +1,5 @@
 //
-//  AuthenticationSource.swift
-//  AuthEngine
-//
-//  Created by Ashish Bhandari - TIL on 14/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import Foundation

@@ -1,8 +1,5 @@
 //
-//  AuthenticationUseCaseTest.swift
-//  AuthAppBusinessLogicTests
-//
-//  Created by Ashish Bhandari - TIL on 16/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import XCTest
@@ -12,7 +9,7 @@ class AuthenticationUseCaseTest: XCTestCase {
     func test_device_authentication_unlocks_successfully() {
         let (sut, output) = makeSUT()
         XCTAssertEqual(output.results.count, 0)
-        sut.didAuthenticate(type: .device(), result: .success(()))
+        sut.didAuthenticate(result: .success(.device()))
         XCTAssertEqual(output.results.count, 1)
         switch output.results.first! {
         case .failure:
@@ -25,8 +22,8 @@ class AuthenticationUseCaseTest: XCTestCase {
     func test_device_unlock_followed_by_invalid_remote_authentication_fails_to_login() {
         let (sut, output) = makeSUT()
         XCTAssertEqual(output.results.count, 0)
-        sut.didAuthenticate(type: .device(), result: .success(()))
-        sut.didAuthenticate(type: .remote, result: .failure(.invalidCredential))
+        sut.didAuthenticate(result: .success(.device()))
+        sut.didAuthenticate(result: .failure(.invalidCredential))
         XCTAssertEqual(output.results.count, 2)
         switch (output.results.first!, output.results.last!) {
         case (.success, .failure(let error)):
