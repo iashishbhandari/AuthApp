@@ -31,6 +31,6 @@ jobs:
         run: xcodebuild -workspace AuthApp.xcworkspace -scheme AuthAppBusinessDomain -sdk macosx -destination 'platform=macOS' test
      
       - name: Build AuthiOSApp
-        run: xcodebuild -workspace AuthApp.xcworkspace -scheme AuthiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
+        run: xcodebuild -workspace AuthApp.xcworkspace -scheme AuthiOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
      
         
