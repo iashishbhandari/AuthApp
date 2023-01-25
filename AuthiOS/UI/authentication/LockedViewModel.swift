@@ -6,15 +6,15 @@ import AuthAppBusinessDomain
 import SwiftUI
 
 final class LockedViewModel: ObservableObject {
-    @Published var authModel: AuthAppModel?
+    let isAuthorised: Bool
+    
+    init(isAuthorised: Bool) {
+        self.isAuthorised = isAuthorised
+    }
     
     var handler: (() -> Void)?
     var resetAction: (() -> Void)?
 
-    var isAuthorised: Bool {
-        !(authModel?.token.isEmpty ?? true)
-    }
-    
     var imageName: String {
         isAuthorised ? AppConstants.unlockIcon : AppConstants.lockIcon
     }

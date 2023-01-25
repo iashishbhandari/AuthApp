@@ -26,15 +26,10 @@ public final class AuthenticationUseCase {
 }
 
 extension AuthenticationUseCase: AuthenticationOutput {
-    public func didAuthenticate(result: Result<AuthEngine.AuthType, AuthEngine.AuthError>) {
+    public func didAuthenticate(result: Result<AuthToken, AuthError>) {
         switch result {
-        case .success(let authType):
-            switch authType {
-            case .device:
-                output.didComplete(result: .success(.init(token: "")))
-            case .credential:
-                output.didComplete(result: .success(.init(token: UUID().uuidString)))
-            }
+        case .success(let token):
+            output.didComplete(result: .success(.init(token: token)))
         case .failure:
             output.didComplete(result: .failure(.invalidCredentials))
         }

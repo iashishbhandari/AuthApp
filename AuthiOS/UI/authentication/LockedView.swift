@@ -117,6 +117,6 @@ struct ResetButtonView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LockedView(viewModel: LockedViewModel())
+        LockedView(viewModel: LockedViewModel(isAuthorised: false))
     }
 }

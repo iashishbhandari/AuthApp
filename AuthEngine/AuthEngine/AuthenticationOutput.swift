@@ -6,7 +6,8 @@ import Foundation
 import LocalAuthentication
 
 public protocol AuthenticationOutput {
-    func didAuthenticate(result: Result<AuthType, AuthError>)
+    typealias AuthToken = String
+    func didAuthenticate(result: Result<AuthToken, AuthError>)
 }
 
 public enum AuthType {
@@ -28,5 +29,4 @@ public struct AuthCredential {
         self.username = username
         self.password = password
     }
-    
 }
