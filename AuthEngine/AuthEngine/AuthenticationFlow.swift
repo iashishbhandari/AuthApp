@@ -26,7 +26,12 @@ final public class AuthenticationFlow {
             authSource.authenticate { [authOutput] in
                 switch $0 {
                 case .success(let authType):
-                    authOutput.didAuthenticate(result: .success(authType))
+                    switch authType {
+                    case .device:
+                        authOutput.didAuthenticate(result: .success(""))
+                    case .credential:
+                        authOutput.didAuthenticate(result: .success(UUID().uuidString))
+                    }
                 case .failure(let error):
                     authOutput.didAuthenticate(result: .failure(error))
                 }

@@ -98,13 +98,13 @@ class AuthenticationFlowTests: XCTestCase {
         
     private class AuthenticationOutputSpy: AuthenticationOutput {
         var callback: (() -> Void)?
-        var results = [Result<AuthEngine.AuthType, AuthEngine.AuthError>]()
+        var results = [Result<AuthToken, AuthError>]()
         
-        init(_ callback: (() -> Void)? = nil) {
+        init(_ callback: (() -> Void)?) {
             self.callback = callback
         }
         
-        func didAuthenticate(result: Result<AuthEngine.AuthType, AuthEngine.AuthError>) {
+        func didAuthenticate(result: Result<AuthToken, AuthError>) {
             results.append(result)
             callback?()
         }

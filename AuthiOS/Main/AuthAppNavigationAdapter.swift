@@ -20,7 +20,7 @@ final class AuthAppNavigationAdapter {
     }
 
     func showLockedScreen() {
-        let viewModel = LockedViewModel()
+        let viewModel = LockedViewModel(isAuthorised: false)
         let presenter = AuthenticationDataPresenter(output: MainThreadDecorator(decoratee: self))
         let useCase = AuthenticationUseCase(output: presenter)
         viewModel.handler = { useCase.authenticate() }
@@ -41,9 +41,8 @@ final class AuthAppNavigationAdapter {
         }
     }
     
-    func showUnLockedScreen(_ authModel: AuthAppModel) {
-        let viewModel = LockedViewModel()
-        viewModel.authModel = authModel
+    func showUnLockedScreen() {
+        let viewModel = LockedViewModel(isAuthorised: true)
         viewModel.handler = { [weak self] in
             self?.showLoginScreen()
         }
@@ -75,7 +74,7 @@ extension AuthAppNavigationAdapter: ResetAuthStateUseCaseOutput {
 
 extension AuthAppNavigationAdapter: AuthDataPresenterOutput {
     func onSuccess(model: AuthAppModel) {
-        model.token.isEmpty ? showUnLockedScreen(model) : showWelcomeScreen()
+        model.token.isEmpty ? showUnLockedScreen() : showWelcomeScreen()
     }
     
     func onFailure(error: AuthAppError) {
