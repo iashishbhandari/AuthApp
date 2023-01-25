@@ -1,8 +1,5 @@
 //
-//  AuthenticationUseCase.swift
-//  AuthiOS
-//
-//  Created by Ashish Bhandari - TIL on 14/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import AuthEngine
@@ -16,22 +13,23 @@ public final class AuthenticationUseCase {
         self.output = output
     }
     
-    public func authenticate(_ type: AuthAppButtonType) {
-        switch type {
-        case .unlock:
-            self.authFlow = AuthenticationFlow(authType: .device(), authOutput: self)
-        case .login:
-            self.authFlow = AuthenticationFlow(authType: .remote, authOutput: self)
+    public func authenticate(with credential: LoginCredential? = nil) {
+        if let loginCredential = credential {
+            self.authFlow = AuthenticationFlow(authType: .credential(loginCredential.toAuthCredential()),
+                                               authOutput: self)
+        } else {
+            self.authFlow = AuthenticationFlow(authType: .device(),
+                                               authOutput: self)
         }
         self.authFlow?.start()
     }
 }
 
 extension AuthenticationUseCase: AuthenticationOutput {
-    public func didAuthenticate(type: AuthEngine.AuthType, result: Result<Void, AuthEngine.AuthError>) {
+    public func didAuthenticate(result: Result<AuthToken, AuthError>) {
         switch result {
-        case .success:
-            output.didComplete(result: .success(.init(token: UUID().uuidString)))
+        case .success(let token):
+            output.didComplete(result: .success(.init(token: token)))
         case .failure:
             output.didComplete(result: .failure(.invalidCredentials))
         }
@@ -42,16 +40,28 @@ public protocol AuthenticationUseCaseOutput {
     func didComplete(result: Result<AuthAppModel, AuthAppError>)
 }
 
-public struct AuthAppModel {
+public struct AuthAppModel: Equatable {
     public let token: String
-}
-
-public enum AuthAppButtonType: String {
-    case unlock = "Unlock the App!"
-    case login = "Sign In to continue!"
 }
 
 public enum AuthAppError: Error {
     case invalidCredentials
-    case unknown
+}
+
+public struct LoginCredential: Hashable {
+    let username: String
+    let password: String
+    
+    public init?(username: String, password: String) {
+        if !username.isEmpty && !password.isEmpty && password.rangeOfCharacter(from: .alphanumerics.inverted) == nil {
+            self.username = username
+            self.password = password
+        } else {
+            return nil
+        }
+    }
+    
+    func toAuthCredential() -> AuthCredential {
+        .init(username: username, password: password)
+    }
 }

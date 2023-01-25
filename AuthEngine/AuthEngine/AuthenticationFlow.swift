@@ -1,8 +1,5 @@
 //
-//  AuthenticationFlow.swift
-//  AuthEngine
-//
-//  Created by Ashish Bhandari - TIL on 13/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import Foundation
@@ -23,16 +20,18 @@ final public class AuthenticationFlow {
             authSource = DeviceAuthenticator(authContext: context)
             
         case .credential(let authCredential):
-            authSource = AsynchonousCredentialAuthenticator(source: CredentialAuthenticator {
-                .init(userName: authCredential.username,
-                      password: authCredential.password)
-            })
+            authSource = AsynchonousCredentialAuthenticator(source: CredentialAuthenticator { authCredential })
         }
         if authSource.canAuthenticate() {
             authSource.authenticate { [authOutput] in
                 switch $0 {
                 case .success(let authType):
-                    authOutput.didAuthenticate(result: .success(authType))
+                    switch authType {
+                    case .device:
+                        authOutput.didAuthenticate(result: .success(""))
+                    case .credential:
+                        authOutput.didAuthenticate(result: .success(UUID().uuidString))
+                    }
                 case .failure(let error):
                     authOutput.didAuthenticate(result: .failure(error))
                 }

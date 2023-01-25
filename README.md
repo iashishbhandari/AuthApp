@@ -1,5 +1,5 @@
 # AuthApp
-A simple Authentication App using SOLID Principles in Swift
+iOS Authentication App using SOLID Principles
 
 
 ## Flow Diagram:

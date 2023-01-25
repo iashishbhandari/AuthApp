@@ -1,15 +1,13 @@
 //
-//  AuthenticationOutput.swift
-//  AuthEngine
-//
-//  Created by Ashish Bhandari - TIL on 13/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import Foundation
 import LocalAuthentication
 
 public protocol AuthenticationOutput {
-    func didAuthenticate(result: Result<AuthType, AuthError>)
+    typealias AuthToken = String
+    func didAuthenticate(result: Result<AuthToken, AuthError>)
 }
 
 public enum AuthType {
@@ -23,16 +21,12 @@ public enum AuthError: Error {
     case invalidSource
 }
 
-public struct AuthCredential: Hashable {
+public struct AuthCredential {
     let username: String
     let password: String
     
-    public init?(username: String, password: String) {
-        if !username.isEmpty && !password.isEmpty && password.rangeOfCharacter(from: .alphanumerics.inverted) == nil {
-            self.username = username
-            self.password = password
-        } else {
-            return nil
-        }
+    public init(username: String, password: String) {
+        self.username = username
+        self.password = password
     }
 }

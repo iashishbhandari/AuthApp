@@ -1,8 +1,5 @@
 //
-//  DeviceAuthenticatorTests.swift
-//  AuthEngineTests
-//
-//  Created by Ashish Bhandari on 23/01/23.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import LocalAuthentication

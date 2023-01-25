@@ -1,8 +1,5 @@
 //
-//  AuthenticationFlowTests.swift
-//  AuthEngineTests
-//
-//  Created by Ashish Bhandari - TIL on 13/05/21.
+//  Copyright (c) 2023 Ashish Bhandari
 //
 
 import XCTest
@@ -20,7 +17,7 @@ class AuthenticationFlowTests: XCTestCase {
             exp.fulfill()
         }
         sut.start()
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 0.1)
         XCTAssertEqual(output.results.count, 1)
     }
     
@@ -33,19 +30,19 @@ class AuthenticationFlowTests: XCTestCase {
         }
         sut.start()
         sut.start()
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 0.1)
         XCTAssertEqual(output.results.count, 2)
     }
     
     func test_flow_started_with_incorrect_credential_captures_failure() {
         let exp = self.expectation(description: "wait_for_credential_authentication")
         let wrongAuthCredential = AuthCredential(username: "username",
-                                                 password: "password1")!
+                                                 password: "password1")
         let (sut, output) = makeSUT(type: .credential(wrongAuthCredential)) {
             exp.fulfill()
         }
         sut.start()
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 0.1)
         switch output.results.first {
         case .failure(let error):
             XCTAssertEqual(error, .invalidCredential)
@@ -57,12 +54,12 @@ class AuthenticationFlowTests: XCTestCase {
     func test_flow_started_with_correct_credential_captures_success() {
         let exp = self.expectation(description: "wait_for_credential_authentication")
         let correctAuthCredential = AuthCredential(username: "username",
-                                                 password: "password2")!
+                                                 password: "password2")
         let (sut, output) = makeSUT(type: .credential(correctAuthCredential)) {
             exp.fulfill()
         }
         sut.start()
-        wait(for: [exp], timeout: 5.0)
+        wait(for: [exp], timeout: 0.1)
         switch output.results.first {
         case .failure:
             assertionFailure()
@@ -77,7 +74,7 @@ class AuthenticationFlowTests: XCTestCase {
             exp.fulfill()
         }
         sut.start()
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 0.1)
         switch output.results.first {
         case .success:
             break
@@ -87,7 +84,7 @@ class AuthenticationFlowTests: XCTestCase {
     }
     
     // MARK: Helpers
-    private func makeSUT(type: AuthType = .credential(dummyAuthCredential),
+    private func makeSUT(type: AuthType = .credential(AuthCredential(username: "a username", password: "a password")),
                          callback: (() -> Void)? = nil,
                          file: StaticString = #filePath,
                          line: UInt = #line) -> (AuthenticationFlow, AuthenticationOutputSpy) {
@@ -98,19 +95,16 @@ class AuthenticationFlowTests: XCTestCase {
         }
         return (sut, output)
     }
-    
-    private static let dummyAuthCredential = AuthCredential(username: "username",
-                                                       password: "password1")!
-    
+        
     private class AuthenticationOutputSpy: AuthenticationOutput {
         var callback: (() -> Void)?
-        var results = [Result<AuthEngine.AuthType, AuthEngine.AuthError>]()
+        var results = [Result<AuthToken, AuthError>]()
         
-        init(_ callback: (() -> Void)? = nil) {
+        init(_ callback: (() -> Void)?) {
             self.callback = callback
         }
         
-        func didAuthenticate(result: Result<AuthEngine.AuthType, AuthEngine.AuthError>) {
+        func didAuthenticate(result: Result<AuthToken, AuthError>) {
             results.append(result)
             callback?()
         }

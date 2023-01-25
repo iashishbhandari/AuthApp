@@ -8,21 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		283E6C4D264E9212003AFE48 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C4C264E9212003AFE48 /* LoaderView.swift */; };
-		283E6C53264E93A8003AFE48 /* AppNavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C52264E93A8003AFE48 /* AppNavigationStore.swift */; };
-		283E6C94264F202A003AFE48 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C93264F202A003AFE48 /* AuthenticationViewModel.swift */; };
+		283E6C94264F202A003AFE48 /* LockedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E6C93264F202A003AFE48 /* LockedViewModel.swift */; };
 		287EBE8F265133D500632D33 /* AuthAppNavigationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EBE8E265133D500632D33 /* AuthAppNavigationAdapter.swift */; };
-		287EBE932651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287EBE922651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift */; };
 		28836856265030140059AB38 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836855265030140059AB38 /* AppConstants.swift */; };
-		28836858265053830059AB38 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836857265053830059AB38 /* NavigationView.swift */; };
+		28836858265053830059AB38 /* AppNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28836857265053830059AB38 /* AppNavigationView.swift */; };
 		2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883685D26506F8E0059AB38 /* LoaderViewModel.swift */; };
-		289B68452658089B00503C30 /* ViewComposerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289B68442658089B00503C30 /* ViewComposerFactory.swift */; };
 		28B1AA33264E4391007B5F49 /* AuthiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1AA32264E4391007B5F49 /* AuthiOSApp.swift */; };
-		28B1AA35264E4391007B5F49 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1AA34264E4391007B5F49 /* AuthenticationView.swift */; };
+		28B1AA35264E4391007B5F49 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1AA34264E4391007B5F49 /* LockedView.swift */; };
 		28B1AA37264E4392007B5F49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1AA36264E4392007B5F49 /* Assets.xcassets */; };
 		28B1AA3A264E4392007B5F49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B1AA39264E4392007B5F49 /* Preview Assets.xcassets */; };
 		28B6EA9526554D2700263D7B /* AuthAppBusinessDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA9426554D2700263D7B /* AuthAppBusinessDomain.framework */; };
 		28B6EA9626554D2700263D7B /* AuthAppBusinessDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA9426554D2700263D7B /* AuthAppBusinessDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		75F864272978370B00D11B00 /* AuthenticationDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F864262978370B00D11B00 /* AuthenticationDataPresenter.swift */; };
+		7538523F298015680068B524 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538523E298015680068B524 /* WelcomeView.swift */; };
+		759DE724297FBC7E00F75ED7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE723297FBC7E00F75ED7 /* LoginView.swift */; };
+		759DE726297FCC6000F75ED7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE725297FCC6000F75ED7 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,25 +42,24 @@
 		283CFED726529D6D00D4B8EB /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		283CFEF02652A18400D4B8EB /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		283E6C4C264E9212003AFE48 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		283E6C52264E93A8003AFE48 /* AppNavigationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationStore.swift; sourceTree = "<group>"; };
-		283E6C93264F202A003AFE48 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		283E6C93264F202A003AFE48 /* LockedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedViewModel.swift; sourceTree = "<group>"; };
 		287EBE4426510AE600632D33 /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		287EBE7626510C4100632D33 /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		287EBE8E265133D500632D33 /* AuthAppNavigationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppNavigationAdapter.swift; sourceTree = "<group>"; };
-		287EBE922651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftUIViewComposerFactory.swift; sourceTree = "<group>"; };
 		287EBEB1265144B700632D33 /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28836855265030140059AB38 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		28836857265053830059AB38 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		28836857265053830059AB38 /* AppNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationView.swift; sourceTree = "<group>"; };
 		2883685D26506F8E0059AB38 /* LoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewModel.swift; sourceTree = "<group>"; };
-		289B68442658089B00503C30 /* ViewComposerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewComposerFactory.swift; sourceTree = "<group>"; };
 		28B1AA2F264E4391007B5F49 /* AuthiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B1AA32264E4391007B5F49 /* AuthiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthiOSApp.swift; sourceTree = "<group>"; };
-		28B1AA34264E4391007B5F49 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		28B1AA34264E4391007B5F49 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
 		28B1AA36264E4392007B5F49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28B1AA39264E4392007B5F49 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28B1AA3B264E4392007B5F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B6EA9426554D2700263D7B /* AuthAppBusinessDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthAppBusinessDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75F864262978370B00D11B00 /* AuthenticationDataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenter.swift; sourceTree = "<group>"; };
+		7538523E298015680068B524 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		759DE723297FBC7E00F75ED7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		759DE725297FCC6000F75ED7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +77,11 @@
 		283E6C39264E86D9003AFE48 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				28B1AA34264E4391007B5F49 /* AuthenticationView.swift */,
-				283E6C93264F202A003AFE48 /* AuthenticationViewModel.swift */,
-				283E6C4C264E9212003AFE48 /* LoaderView.swift */,
-				2883685D26506F8E0059AB38 /* LoaderViewModel.swift */,
-				28836857265053830059AB38 /* NavigationView.swift */,
+				753852402980165A0068B524 /* authentication */,
+				75385241298016760068B524 /* loader */,
+				759DE722297FBC3200F75ED7 /* login */,
+				7554BD3429814968002D5442 /* navigation */,
+				753852422980168B0068B524 /* welcome */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -92,10 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				28B1AA32264E4391007B5F49 /* AuthiOSApp.swift */,
-				283E6C52264E93A8003AFE48 /* AppNavigationStore.swift */,
 				287EBE8E265133D500632D33 /* AuthAppNavigationAdapter.swift */,
-				287EBE922651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift */,
-				289B68442658089B00503C30 /* ViewComposerFactory.swift */,
 				28B1AA3B264E4392007B5F49 /* Info.plist */,
 			);
 			path = Main;
@@ -144,7 +139,6 @@
 			children = (
 				2883685426502FFA0059AB38 /* Helper */,
 				283E6C3A264E86F3003AFE48 /* Main */,
-				75F864222978363F00D11B00 /* Presentation */,
 				283E6C39264E86D9003AFE48 /* UI */,
 				28B1AA36264E4392007B5F49 /* Assets.xcassets */,
 				28B1AA38264E4392007B5F49 /* Preview Content */,
@@ -160,12 +154,47 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		75F864222978363F00D11B00 /* Presentation */ = {
+		753852402980165A0068B524 /* authentication */ = {
 			isa = PBXGroup;
 			children = (
-				75F864262978370B00D11B00 /* AuthenticationDataPresenter.swift */,
+				28B1AA34264E4391007B5F49 /* LockedView.swift */,
+				283E6C93264F202A003AFE48 /* LockedViewModel.swift */,
 			);
-			path = Presentation;
+			path = authentication;
+			sourceTree = "<group>";
+		};
+		75385241298016760068B524 /* loader */ = {
+			isa = PBXGroup;
+			children = (
+				283E6C4C264E9212003AFE48 /* LoaderView.swift */,
+				2883685D26506F8E0059AB38 /* LoaderViewModel.swift */,
+			);
+			path = loader;
+			sourceTree = "<group>";
+		};
+		753852422980168B0068B524 /* welcome */ = {
+			isa = PBXGroup;
+			children = (
+				7538523E298015680068B524 /* WelcomeView.swift */,
+			);
+			path = welcome;
+			sourceTree = "<group>";
+		};
+		7554BD3429814968002D5442 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				28836857265053830059AB38 /* AppNavigationView.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		759DE722297FBC3200F75ED7 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				759DE723297FBC7E00F75ED7 /* LoginView.swift */,
+				759DE725297FCC6000F75ED7 /* LoginViewModel.swift */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,15 +268,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */,
-				28B1AA35264E4391007B5F49 /* AuthenticationView.swift in Sources */,
-				75F864272978370B00D11B00 /* AuthenticationDataPresenter.swift in Sources */,
-				28836858265053830059AB38 /* NavigationView.swift in Sources */,
+				28B1AA35264E4391007B5F49 /* LockedView.swift in Sources */,
+				28836858265053830059AB38 /* AppNavigationView.swift in Sources */,
 				283E6C4D264E9212003AFE48 /* LoaderView.swift in Sources */,
-				289B68452658089B00503C30 /* ViewComposerFactory.swift in Sources */,
+				759DE726297FCC6000F75ED7 /* LoginViewModel.swift in Sources */,
 				28B1AA33264E4391007B5F49 /* AuthiOSApp.swift in Sources */,
-				287EBE932651340B00632D33 /* iOSSwiftUIViewComposerFactory.swift in Sources */,
-				283E6C94264F202A003AFE48 /* AuthenticationViewModel.swift in Sources */,
-				283E6C53264E93A8003AFE48 /* AppNavigationStore.swift in Sources */,
+				283E6C94264F202A003AFE48 /* LockedViewModel.swift in Sources */,
+				7538523F298015680068B524 /* WelcomeView.swift in Sources */,
+				759DE724297FBC7E00F75ED7 /* LoginView.swift in Sources */,
 				287EBE8F265133D500632D33 /* AuthAppNavigationAdapter.swift in Sources */,
 				28836856265030140059AB38 /* AppConstants.swift in Sources */,
 			);
