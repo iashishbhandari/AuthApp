@@ -5,7 +5,7 @@
 import XCTest
 @testable import AuthAppBusinessDomain
 
-class AuthenticationUseCaseTest: XCTestCase {
+class DeviceAuthenticationUseCaseTest: XCTestCase {
     func test_device_authentication_unlocks_successfully() {
         let (sut, output) = makeSUT()
         XCTAssertEqual(output.results.count, 0)
@@ -34,19 +34,20 @@ class AuthenticationUseCaseTest: XCTestCase {
     }
     
     // MARK: Helpers
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (AuthenticationUseCase, AuthenticationUseCaseOutputSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (DeviceAuthenticationUseCase, AuthenticationUseCaseOutputSpy) {
         let output = AuthenticationUseCaseOutputSpy()
-        let sut = AuthenticationUseCase(output: output)
-        addTeardownBlock { [weak sut] in
+        let sut = DeviceAuthenticationUseCase(output: output)
+        addTeardownBlock { [weak sut, weak output] in
             XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
+            XCTAssertNil(output, "Potential memory leak.", file: file, line: line)
         }
         return (sut, output)
     }
     
     private final class AuthenticationUseCaseOutputSpy: AuthenticationUseCaseOutput {
-        var results = [Result<AuthAppModel, AuthAppError>]()
+        var results = [Result<AuthAppData, AuthAppError>]()
 
-        func didComplete(result: Result<AuthAppModel, AuthAppError>) {
+        func didComplete(result: Result<AuthAppData, AuthAppError>) {
             results.append(result)
         }
     }

@@ -3,33 +3,29 @@
 //
 
 import AuthEngine
-import Foundation
 
-public final class AuthenticationUseCase {
+public final class CredentialAuthenticationUseCase {
     private var authFlow: AuthenticationFlow?
+    private var loginCredentials: LoginCredential?
     private var output: AuthenticationUseCaseOutput
-    
+
     public init(output: AuthenticationUseCaseOutput) {
         self.output = output
     }
     
-    public func authenticate(with credential: LoginCredential? = nil) {
-        if let loginCredential = credential {
-            self.authFlow = AuthenticationFlow(authType: .credential(loginCredential.toAuthCredential()),
-                                               authOutput: self)
-        } else {
-            self.authFlow = AuthenticationFlow(authType: .device(),
-                                               authOutput: self)
-        }
+    public func authenticate(with loginCredentials: LoginCredential) {
+        self.loginCredentials = loginCredentials
+        self.authFlow = AuthenticationFlow(authType: .credential(loginCredentials.toAuthCredential()),
+                                           authOutput: self)
         self.authFlow?.start()
     }
 }
 
-extension AuthenticationUseCase: AuthenticationOutput {
+extension CredentialAuthenticationUseCase: AuthenticationOutput {
     public func didAuthenticate(result: Result<AuthToken, AuthError>) {
         switch result {
         case .success(let token):
-            output.didComplete(result: .success(.init(token: token)))
+            output.didComplete(result: .success(.init(token: token, credential: self.loginCredentials)))
         case .failure:
             output.didComplete(result: .failure(.invalidCredentials))
         }
@@ -37,11 +33,17 @@ extension AuthenticationUseCase: AuthenticationOutput {
 }
 
 public protocol AuthenticationUseCaseOutput {
-    func didComplete(result: Result<AuthAppModel, AuthAppError>)
+    func didComplete(result: Result<AuthAppData, AuthAppError>)
 }
 
-public struct AuthAppModel: Equatable {
+public struct AuthAppData: Equatable {
     public let token: String
+    public let credential: LoginCredential?
+    
+    public init(token: String, credential: LoginCredential? = nil) {
+        self.token = token
+        self.credential = credential
+    }
 }
 
 public enum AuthAppError: Error {

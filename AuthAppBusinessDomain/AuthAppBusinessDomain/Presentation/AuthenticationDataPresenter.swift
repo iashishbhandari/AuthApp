@@ -2,24 +2,24 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
-public protocol AuthDataPresenterOutput {
-    func onSuccess(model: AuthAppModel)
+public protocol AuthenticationDataPresenterOutput {
+    func onSuccess(data: AuthAppData)
     func onFailure(error: AuthAppError)
 }
 
 public final class AuthenticationDataPresenter {
-    private var output: AuthDataPresenterOutput
+    private var output: AuthenticationDataPresenterOutput
     
-    public init(output: AuthDataPresenterOutput) {
+    public init(output: AuthenticationDataPresenterOutput) {
         self.output = output
     }
 }
 
 extension AuthenticationDataPresenter: AuthenticationUseCaseOutput {
-    public func didComplete(result: Result<AuthAppModel, AuthAppError>) {
+    public func didComplete(result: Result<AuthAppData, AuthAppError>) {
         switch result {
-        case .success(let model):
-            output.onSuccess(model: model)
+        case .success(let data):
+            output.onSuccess(data: data)
         case .failure(let error):
             output.onFailure(error: error)
         }

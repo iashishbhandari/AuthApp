@@ -2,7 +2,16 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthAppBusinessDomain
 import SwiftUI
+
+class AuthAppStore {
+    private init() {}
+    static let shared = AuthAppStore()
+    
+    let store: PersistAuthDataUseCase = PersistAuthDataUseCase()
+    var adaptor: AuthAppNavigationAdapter?
+}
 
 @main
 struct AuthiOSApp: App {
@@ -12,7 +21,11 @@ struct AuthiOSApp: App {
         WindowGroup {
             AppNavigationView(store: navigation)
                 .onAppear {
-                    AuthAppNavigationAdapter(navigation: navigation).showLockedScreen()
+                    let adaptor = AuthAppNavigationAdapter(navigation: navigation)
+                    adaptor.showLoadingScreen {
+                        adaptor.showLockedScreen()
+                    }
+                    AuthAppStore.shared.adaptor = adaptor
                 }
         }
     }

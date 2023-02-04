@@ -12,29 +12,36 @@ final class AuthAppNavigationAdapter {
         self.navigation = navigation
     }
     
-    func showLoadingScreen() {
+    func showLoadingScreen(completion: @escaping () -> Void) {
         let viewModel = LoaderViewModel()
-        let useCase = FinishLoaderUseCase(output: self)
+        let useCase = FinishLoaderUseCase(output: completion)
         viewModel.handler = useCase.complete
         navigation.currentView = .loader(viewModel)
     }
 
     func showLockedScreen() {
-        let viewModel = LockedViewModel(isAuthorised: false)
-        let presenter = AuthenticationDataPresenter(output: MainThreadDecorator(decoratee: self))
-        let useCase = AuthenticationUseCase(output: presenter)
-        viewModel.handler = { useCase.authenticate() }
-        let resetUseCase = ResetAuthStateUseCase(output: self)
-        viewModel.resetAction = resetUseCase.reset
-        withAnimation {
-            navigation.currentView = .lock(viewModel)
+        if let _ = AuthAppStore.shared.store.get() {
+            let viewModel = LockedViewModel(isAuthorised: false)
+            let useCase = DeviceAuthenticationUseCase(output: self)
+            viewModel.handler = { useCase.authenticate() }
+            withAnimation {
+                navigation.currentView = .lock(viewModel)
+            }
+        } else {
+            let viewModel = LockedViewModel(isAuthorised: false)
+            let presenter = AuthenticationDataPresenter(output: MainThreadDecorator(decoratee: self))
+            let useCase = DeviceAuthenticationUseCase(output: presenter)
+            viewModel.handler = { useCase.authenticate() }
+            withAnimation {
+                navigation.currentView = .lock(viewModel)
+            }
         }
     }
     
     func showLoginScreen() {
         let viewModel = LoginViewModel()
         let presenter = AuthenticationDataPresenter(output: MainThreadDecorator(decoratee: self))
-        let useCase = AuthenticationUseCase(output: presenter)
+        let useCase = CredentialAuthenticationUseCase(output: AuthenticationUseCaseOutputComposite(outputs: [AuthAppStore.shared.store, presenter]))
         viewModel.loginAction = { useCase.authenticate(with: $0) }
         withAnimation {
             navigation.currentView = .unlock(viewModel)
@@ -60,21 +67,25 @@ final class AuthAppNavigationAdapter {
     }
 }
 
-extension AuthAppNavigationAdapter: FinishLoaderUseCaseOutput {
-    func onCompleteLoading() {
-        showLockedScreen()
-    }
-}
-
 extension AuthAppNavigationAdapter: ResetAuthStateUseCaseOutput {
     func onResetAuthState() {
-        showLoadingScreen()
+        showLoadingScreen { [weak self] in
+            self?.showLockedScreen()
+        }
     }
 }
 
-extension AuthAppNavigationAdapter: AuthDataPresenterOutput {
-    func onSuccess(model: AuthAppModel) {
-        model.token.isEmpty ? showUnLockedScreen() : showWelcomeScreen()
+extension AuthAppNavigationAdapter: AuthenticationDataPresenterOutput {
+    func onSuccess(data: AuthAppData) {
+        if data.token.isEmpty {
+            showLoadingScreen { [weak self] in
+                self?.showUnLockedScreen()
+            }
+        } else {
+            showLoadingScreen { [weak self] in
+                self?.showWelcomeScreen()
+            }
+        }
     }
     
     func onFailure(error: AuthAppError) {
@@ -82,12 +93,35 @@ extension AuthAppNavigationAdapter: AuthDataPresenterOutput {
     }
 }
 
-private struct MainThreadDecorator: AuthDataPresenterOutput {
-    let decoratee: AuthDataPresenterOutput
+extension AuthAppNavigationAdapter: AuthenticationUseCaseOutput {
+    func didComplete(result: Result<AuthAppData, AuthAppError>) {
+        switch result {
+        case .success(let authData):
+            if authData.credential == nil, let credential = AuthAppStore.shared.store.get() {
+                let presenter = AuthenticationDataPresenter(output: MainThreadDecorator(decoratee: self))
+                let useCase = CredentialAuthenticationUseCase(output: presenter)
+                useCase.authenticate(with: credential)
+            }
+        case .failure(let error):
+            navigation.errorVM = .init(error: error)
+        }
+    }
+}
+
+private struct AuthenticationUseCaseOutputComposite: AuthenticationUseCaseOutput {
+    let outputs: [AuthenticationUseCaseOutput]
     
-    func onSuccess(model: AuthAppModel) {
+    func didComplete(result: Result<AuthAppData, AuthAppError>) {
+        outputs.forEach { $0.didComplete(result: result) }
+    }
+}
+
+private struct MainThreadDecorator: AuthenticationDataPresenterOutput {
+    let decoratee: AuthenticationDataPresenterOutput
+    
+    func onSuccess(data: AuthAppData) {
         runOnMainThread {
-            decoratee.onSuccess(model: model)
+            decoratee.onSuccess(data: data)
         }
     }
     

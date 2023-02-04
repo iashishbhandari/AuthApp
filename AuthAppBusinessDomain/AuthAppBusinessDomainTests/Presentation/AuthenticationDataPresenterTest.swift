@@ -9,9 +9,9 @@ class AuthenticationDataPresenterTest: XCTestCase {
     func test_didComplete_outputs_correct_result_on_success() {
         let (sut, output) = makeSUT()
         XCTAssertEqual(output.results.count, 0)
-        let authModel1 = AuthAppModel(token: "token1")
+        let authModel1 = AuthAppData(token: "token1")
         sut.didComplete(result: .success(authModel1))
-        let authModel2 = AuthAppModel(token: "token2")
+        let authModel2 = AuthAppData(token: "token2")
         sut.didComplete(result: .success(authModel2))
         XCTAssertEqual(output.results.count, 2)
         XCTAssertEqual(output.results.first, authModel1)
@@ -39,11 +39,11 @@ class AuthenticationDataPresenterTest: XCTestCase {
         return (sut, output)
     }
     
-    final class AuthDataPresenterOutputSpy: AuthDataPresenterOutput {
-        var results = [AuthAppModel]()
+    final class AuthDataPresenterOutputSpy: AuthenticationDataPresenterOutput {
+        var results = [AuthAppData]()
         var errors = [AuthAppError]()
 
-        func onSuccess(model: AuthAppModel) {
+        func onSuccess(data model: AuthAppData) {
             results.append(model)
         }
         

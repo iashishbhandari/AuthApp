@@ -10,14 +10,17 @@
 		28B6EA542655436600263D7B /* AuthAppBusinessDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA4A2655436600263D7B /* AuthAppBusinessDomain.framework */; };
 		28B6EA712655443800263D7B /* ResetAuthStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA6B2655443800263D7B /* ResetAuthStateUseCase.swift */; };
 		28B6EA722655443800263D7B /* FinishLoaderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA6C2655443800263D7B /* FinishLoaderUseCase.swift */; };
-		28B6EA732655443800263D7B /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA6D2655443800263D7B /* AuthenticationUseCase.swift */; };
+		28B6EA732655443800263D7B /* CredentialAuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA6D2655443800263D7B /* CredentialAuthenticationUseCase.swift */; };
 		28B6EA832655444400263D7B /* ResetAuthStateUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA7E2655444400263D7B /* ResetAuthStateUseCaseTest.swift */; };
 		28B6EA842655444400263D7B /* FinishLoaderUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */; };
-		28B6EA852655444400263D7B /* AuthenticationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */; };
+		28B6EA852655444400263D7B /* DeviceAuthenticationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B6EA802655444400263D7B /* DeviceAuthenticationUseCaseTest.swift */; };
 		28B6EA8F26554B3100263D7B /* AuthEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA8E26554B3100263D7B /* AuthEngine.framework */; };
 		28B6EA9026554B3100263D7B /* AuthEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28B6EA8E26554B3100263D7B /* AuthEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7554BD392981699A002D5442 /* AuthenticationDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554BD382981699A002D5442 /* AuthenticationDataPresenter.swift */; };
 		7554BD3D29816EEF002D5442 /* AuthenticationDataPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554BD3B29816EEE002D5442 /* AuthenticationDataPresenterTest.swift */; };
+		7555C94A29828CD20006BA2B /* PersistAuthDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555C94929828CD20006BA2B /* PersistAuthDataUseCase.swift */; };
+		7555C94C2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555C94B2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift */; };
+		7555C94E2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555C94D2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +54,16 @@
 		28B6EA5A2655436600263D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28B6EA6B2655443800263D7B /* ResetAuthStateUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetAuthStateUseCase.swift; sourceTree = "<group>"; };
 		28B6EA6C2655443800263D7B /* FinishLoaderUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishLoaderUseCase.swift; sourceTree = "<group>"; };
-		28B6EA6D2655443800263D7B /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
+		28B6EA6D2655443800263D7B /* CredentialAuthenticationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialAuthenticationUseCase.swift; sourceTree = "<group>"; };
 		28B6EA7E2655444400263D7B /* ResetAuthStateUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetAuthStateUseCaseTest.swift; sourceTree = "<group>"; };
 		28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishLoaderUseCaseTest.swift; sourceTree = "<group>"; };
-		28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
+		28B6EA802655444400263D7B /* DeviceAuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceAuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
 		28B6EA8E26554B3100263D7B /* AuthEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7554BD382981699A002D5442 /* AuthenticationDataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenter.swift; sourceTree = "<group>"; };
 		7554BD3B29816EEE002D5442 /* AuthenticationDataPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataPresenterTest.swift; sourceTree = "<group>"; };
+		7555C94929828CD20006BA2B /* PersistAuthDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistAuthDataUseCase.swift; sourceTree = "<group>"; };
+		7555C94B2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthenticationUseCase.swift; sourceTree = "<group>"; };
+		7555C94D2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialAuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +108,10 @@
 		28B6EA4C2655436600263D7B /* AuthAppBusinessDomain */ = {
 			isa = PBXGroup;
 			children = (
-				28B6EA6D2655443800263D7B /* AuthenticationUseCase.swift */,
+				28B6EA6D2655443800263D7B /* CredentialAuthenticationUseCase.swift */,
+				7555C94B2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift */,
 				28B6EA6C2655443800263D7B /* FinishLoaderUseCase.swift */,
+				7555C94929828CD20006BA2B /* PersistAuthDataUseCase.swift */,
 				28B6EA6B2655443800263D7B /* ResetAuthStateUseCase.swift */,
 				7554BD372981697D002D5442 /* Presentation */,
 				28B6EA4E2655436600263D7B /* Info.plist */,
@@ -114,7 +122,8 @@
 		28B6EA572655436600263D7B /* AuthAppBusinessDomainTests */ = {
 			isa = PBXGroup;
 			children = (
-				28B6EA802655444400263D7B /* AuthenticationUseCaseTest.swift */,
+				7555C94D2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift */,
+				28B6EA802655444400263D7B /* DeviceAuthenticationUseCaseTest.swift */,
 				28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */,
 				28B6EA7E2655444400263D7B /* ResetAuthStateUseCaseTest.swift */,
 				7554BD3A29816ED4002D5442 /* Presentation */,
@@ -258,7 +267,9 @@
 				28B6EA722655443800263D7B /* FinishLoaderUseCase.swift in Sources */,
 				28B6EA712655443800263D7B /* ResetAuthStateUseCase.swift in Sources */,
 				7554BD392981699A002D5442 /* AuthenticationDataPresenter.swift in Sources */,
-				28B6EA732655443800263D7B /* AuthenticationUseCase.swift in Sources */,
+				7555C94C2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift in Sources */,
+				28B6EA732655443800263D7B /* CredentialAuthenticationUseCase.swift in Sources */,
+				7555C94A29828CD20006BA2B /* PersistAuthDataUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B6EA832655444400263D7B /* ResetAuthStateUseCaseTest.swift in Sources */,
-				28B6EA852655444400263D7B /* AuthenticationUseCaseTest.swift in Sources */,
+				28B6EA852655444400263D7B /* DeviceAuthenticationUseCaseTest.swift in Sources */,
+				7555C94E2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift in Sources */,
 				7554BD3D29816EEF002D5442 /* AuthenticationDataPresenterTest.swift in Sources */,
 				28B6EA842655444400263D7B /* FinishLoaderUseCaseTest.swift in Sources */,
 			);

@@ -4,18 +4,16 @@
 
 import Foundation
 
+public typealias FinishLoaderUseCaseOutput = () -> Void
+
 public final class FinishLoaderUseCase {
     private var output: FinishLoaderUseCaseOutput
     
-    public init(output: FinishLoaderUseCaseOutput) {
+    public init(output: @escaping FinishLoaderUseCaseOutput) {
         self.output = output
     }
     
     public func complete() {
-        output.onCompleteLoading()
+        output()
     }
-}
-
-public protocol FinishLoaderUseCaseOutput {
-    func onCompleteLoading()
 }
