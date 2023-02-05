@@ -58,9 +58,7 @@ final class DeviceAuthenticatorTests: XCTestCase {
     // MARK: Helpers
     private func makeSUT(policy: LAPolicy, file: StaticString = #filePath, line: UInt = #line) -> DeviceAuthenticator {
         let sut = DeviceAuthenticator(authContext: StubLAContext(policy))
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
         return sut
     }
 }

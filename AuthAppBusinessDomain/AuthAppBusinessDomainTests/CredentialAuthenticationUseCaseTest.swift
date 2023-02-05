@@ -46,10 +46,8 @@ class CredentialAuthenticationUseCaseTest: XCTestCase {
     -> (CredentialAuthenticationUseCase, AuthenticationUseCaseOutputStub) {
         let output = AuthenticationUseCaseOutputStub(credential)
         let sut = CredentialAuthenticationUseCase(output: output)
-        addTeardownBlock { [weak sut, weak output] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-            XCTAssertNil(output, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
+        trackMemoryLeak(of: output)
         return (sut, output)
     }
     

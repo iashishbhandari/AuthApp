@@ -27,9 +27,7 @@ class FinishLoaderUseCaseTest: XCTestCase {
     private func makeSUT(output: @escaping FinishLoaderUseCaseOutput,
                          file: StaticString = #filePath, line: UInt = #line) -> FinishLoaderUseCase {
         let sut = FinishLoaderUseCase(output: output)
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
         return sut
     }
 }

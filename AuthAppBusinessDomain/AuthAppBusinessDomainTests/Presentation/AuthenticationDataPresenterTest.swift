@@ -32,10 +32,8 @@ class AuthenticationDataPresenterTest: XCTestCase {
     func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (AuthenticationDataPresenter, AuthDataPresenterOutputSpy) {
         let output = AuthDataPresenterOutputSpy()
         let sut = AuthenticationDataPresenter(output: output)
-        addTeardownBlock { [weak sut, weak output] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-            XCTAssertNil(output, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
+        trackMemoryLeak(of: output)
         return (sut, output)
     }
     
@@ -49,6 +47,16 @@ class AuthenticationDataPresenterTest: XCTestCase {
         
         func onFailure(error: AuthAppError) {
             errors.append(error)
+        }
+    }
+}
+
+extension XCTestCase {
+    func trackMemoryLeak(of instance: AnyObject,
+                   file: StaticString = #filePath,
+                   line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Potential memory leak!", file: file, line: line)
         }
     }
 }

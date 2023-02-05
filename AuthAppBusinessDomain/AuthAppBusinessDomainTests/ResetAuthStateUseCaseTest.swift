@@ -25,9 +25,8 @@ class ResetAuthStateUseCaseTest: XCTestCase {
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (ResetAuthStateUseCase, ResetAuthStateUseCaseSpy) {
         let output = ResetAuthStateUseCaseSpy()
         let sut = ResetAuthStateUseCase(output: output)
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
+        trackMemoryLeak(of: output)
         return (sut, output)
     }
 

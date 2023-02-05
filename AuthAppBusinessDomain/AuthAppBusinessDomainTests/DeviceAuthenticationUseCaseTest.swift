@@ -37,10 +37,8 @@ class DeviceAuthenticationUseCaseTest: XCTestCase {
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (DeviceAuthenticationUseCase, AuthenticationUseCaseOutputSpy) {
         let output = AuthenticationUseCaseOutputSpy()
         let sut = DeviceAuthenticationUseCase(output: output)
-        addTeardownBlock { [weak sut, weak output] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-            XCTAssertNil(output, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
+        trackMemoryLeak(of: output)
         return (sut, output)
     }
     
