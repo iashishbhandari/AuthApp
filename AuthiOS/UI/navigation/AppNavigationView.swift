@@ -29,7 +29,7 @@ final class AppNavigationStore: ObservableObject {
         case lock(LockedViewModel)
         case loader(LoaderViewModel)
         case unlock(LoginViewModel)
-        case welcome
+        case welcome(WelcomeViewModel)
     }
     @Published var currentView: CurrentView?
     @Published var errorVM: AppErrorViewModel?
@@ -42,8 +42,8 @@ final class AppNavigationStore: ObservableObject {
             return AnyView(LoaderView(viewModel: model))
         case let .unlock(model):
             return AnyView(LoginView(viewModel: model))
-        case .welcome:
-            return AnyView(WelcomeView())
+        case let .welcome(model):
+            return AnyView(WelcomeView(viewModel: model))
         case .none:
             return AnyView(EmptyView())
         }
@@ -57,6 +57,8 @@ final class AppNavigationStore: ObservableObject {
             switch error {
             case .invalidCredentials:
                 message = AppConstants.wrongCredentialsText
+            case .noData:
+                message = AppConstants.somethingWentWrongText
             }
         }
     }

@@ -19,11 +19,11 @@ struct LoginView: View {
                     .background(Color.green)
             }.padding()
             Button(action: {
-                self.viewModel.loginAction?(.init(username: viewModel.email, password: viewModel.password))
+                self.viewModel.loginAction?(.init(username: viewModel.email, password: viewModel.password)!)
             }) {
                 Text(AppConstants.loginButtonText)
             }
-            .disabled(viewModel.isCredentialEmpty)
+            .disabled(!viewModel.isValidCredential)
         }
         .frame(minWidth: 300, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         .ignoresSafeArea()

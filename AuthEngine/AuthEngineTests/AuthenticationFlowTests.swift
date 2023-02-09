@@ -2,8 +2,8 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthEngine
 import XCTest
-@testable import AuthEngine
 
 class AuthenticationFlowTests: XCTestCase {
     func test_flow_initialization_captures_no_result() {
@@ -90,9 +90,7 @@ class AuthenticationFlowTests: XCTestCase {
                          line: UInt = #line) -> (AuthenticationFlow, AuthenticationOutputSpy) {
         let output = AuthenticationOutputSpy(callback)
         let sut = AuthenticationFlow(authType: type, authOutput: output)
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
         return (sut, output)
     }
         
@@ -107,6 +105,16 @@ class AuthenticationFlowTests: XCTestCase {
         func didAuthenticate(result: Result<AuthToken, AuthError>) {
             results.append(result)
             callback?()
+        }
+    }
+}
+
+extension XCTestCase {
+    func trackMemoryLeak(of instance: AnyObject,
+                   file: StaticString = #filePath,
+                   line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Potential memory leak!", file: file, line: line)
         }
     }
 }

@@ -3,15 +3,15 @@
 //
 
 import AuthAppBusinessDomain
-import SwiftUI
+import Foundation
 
 class LoginViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
 
-    var loginAction: ((LoginCredential?) -> Void)?
+    var loginAction: ((LoginCredential) -> Void)?
     
-    var isCredentialEmpty: Bool {
-        email.isEmpty || password.isEmpty
+    var isValidCredential: Bool {
+        LoginCredential(username: email, password: password) != nil
     }
 }

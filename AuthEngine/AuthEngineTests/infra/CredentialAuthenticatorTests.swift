@@ -59,9 +59,7 @@ final class CredentialAuthenticatorTests: XCTestCase {
     private func makeSUT(credential: AuthCredential,
                          file: StaticString = #filePath, line: UInt = #line) -> CredentialAuthenticator {
         let sut = CredentialAuthenticator { credential }
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
         return sut
     }
 }

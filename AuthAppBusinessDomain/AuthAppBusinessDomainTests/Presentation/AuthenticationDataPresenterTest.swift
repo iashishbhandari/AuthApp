@@ -2,16 +2,16 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthAppBusinessDomain
 import XCTest
-@testable import AuthAppBusinessDomain
 
 class AuthenticationDataPresenterTest: XCTestCase {
     func test_didComplete_outputs_correct_result_on_success() {
         let (sut, output) = makeSUT()
         XCTAssertEqual(output.results.count, 0)
-        let authModel1 = AuthAppModel(token: "token1")
+        let authModel1 = AuthAppData(token: "token1")
         sut.didComplete(result: .success(authModel1))
-        let authModel2 = AuthAppModel(token: "token2")
+        let authModel2 = AuthAppData(token: "token2")
         sut.didComplete(result: .success(authModel2))
         XCTAssertEqual(output.results.count, 2)
         XCTAssertEqual(output.results.first, authModel1)
@@ -32,23 +32,31 @@ class AuthenticationDataPresenterTest: XCTestCase {
     func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (AuthenticationDataPresenter, AuthDataPresenterOutputSpy) {
         let output = AuthDataPresenterOutputSpy()
         let sut = AuthenticationDataPresenter(output: output)
-        addTeardownBlock { [weak sut, weak output] in
-            XCTAssertNil(sut, "Potential memory leak.", file: file, line: line)
-            XCTAssertNil(output, "Potential memory leak.", file: file, line: line)
-        }
+        trackMemoryLeak(of: sut)
+        trackMemoryLeak(of: output)
         return (sut, output)
     }
     
-    final class AuthDataPresenterOutputSpy: AuthDataPresenterOutput {
-        var results = [AuthAppModel]()
+    final class AuthDataPresenterOutputSpy: AuthenticationDataPresenterOutput {
+        var results = [AuthAppData]()
         var errors = [AuthAppError]()
 
-        func onSuccess(model: AuthAppModel) {
+        func onSuccess(data model: AuthAppData) {
             results.append(model)
         }
         
         func onFailure(error: AuthAppError) {
             errors.append(error)
+        }
+    }
+}
+
+extension XCTestCase {
+    func trackMemoryLeak(of instance: AnyObject,
+                   file: StaticString = #filePath,
+                   line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Potential memory leak!", file: file, line: line)
         }
     }
 }

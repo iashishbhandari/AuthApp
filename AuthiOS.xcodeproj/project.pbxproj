@@ -22,6 +22,7 @@
 		7538523F298015680068B524 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538523E298015680068B524 /* WelcomeView.swift */; };
 		759DE724297FBC7E00F75ED7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE723297FBC7E00F75ED7 /* LoginView.swift */; };
 		759DE726297FCC6000F75ED7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE725297FCC6000F75ED7 /* LoginViewModel.swift */; };
+		75E731F4298FF58F0087A969 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E731F3298FF58F0087A969 /* WelcomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 		7538523E298015680068B524 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		759DE723297FBC7E00F75ED7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		759DE725297FCC6000F75ED7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		75E731F3298FF58F0087A969 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				7538523E298015680068B524 /* WelcomeView.swift */,
+				75E731F3298FF58F0087A969 /* WelcomeViewModel.swift */,
 			);
 			path = welcome;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2883685E26506F8E0059AB38 /* LoaderViewModel.swift in Sources */,
+				75E731F4298FF58F0087A969 /* WelcomeViewModel.swift in Sources */,
 				28B1AA35264E4391007B5F49 /* LockedView.swift in Sources */,
 				28836858265053830059AB38 /* AppNavigationView.swift in Sources */,
 				283E6C4D264E9212003AFE48 /* LoaderView.swift in Sources */,
