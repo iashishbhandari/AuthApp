@@ -2,8 +2,8 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthAppBusinessDomain
 import XCTest
-@testable import AuthAppBusinessDomain
 
 class DeviceAuthenticationUseCaseTest: XCTestCase {
     func test_device_authentication_unlocks_successfully() {

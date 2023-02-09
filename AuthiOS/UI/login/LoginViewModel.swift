@@ -3,7 +3,7 @@
 //
 
 import AuthAppBusinessDomain
-import SwiftUI
+import Foundation
 
 class LoginViewModel: ObservableObject {
     @Published var email = ""

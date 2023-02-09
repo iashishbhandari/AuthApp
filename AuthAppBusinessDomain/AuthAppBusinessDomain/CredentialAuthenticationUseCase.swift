@@ -48,6 +48,7 @@ public struct AuthAppData: Equatable {
 
 public enum AuthAppError: Error {
     case invalidCredentials
+    case noData
 }
 
 public struct LoginCredential: Hashable {

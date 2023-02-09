@@ -3,7 +3,7 @@
 //
 
 import AuthAppBusinessDomain
-import SwiftUI
+import Foundation
 
 final class LockedViewModel: ObservableObject {
     let isAuthorised: Bool

@@ -21,6 +21,11 @@
 		7555C94A29828CD20006BA2B /* PersistAuthDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555C94929828CD20006BA2B /* PersistAuthDataUseCase.swift */; };
 		7555C94C2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555C94B2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift */; };
 		7555C94E2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555C94D2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift */; };
+		75E73200299007200087A969 /* WelcomeFeedDataUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E731FF299007200087A969 /* WelcomeFeedDataUseCaseTests.swift */; };
+		75E7320229900CFB0087A969 /* WelcomeFeedDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7320129900CFB0087A969 /* WelcomeFeedDataUseCase.swift */; };
+		75E73205299015100087A969 /* WelcomeFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E73204299015100087A969 /* WelcomeFeedService.swift */; };
+		75E7320C29950CE20087A969 /* WelcomeFeedServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7320B29950CE20087A969 /* WelcomeFeedServiceStub.swift */; };
+		75E7320F29950F690087A969 /* WelcomeFeedServiceStubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E7320E29950F690087A969 /* WelcomeFeedServiceStubTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,11 @@
 		7555C94929828CD20006BA2B /* PersistAuthDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistAuthDataUseCase.swift; sourceTree = "<group>"; };
 		7555C94B2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthenticationUseCase.swift; sourceTree = "<group>"; };
 		7555C94D2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialAuthenticationUseCaseTest.swift; sourceTree = "<group>"; };
+		75E731FF299007200087A969 /* WelcomeFeedDataUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeedDataUseCaseTests.swift; sourceTree = "<group>"; };
+		75E7320129900CFB0087A969 /* WelcomeFeedDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeedDataUseCase.swift; sourceTree = "<group>"; };
+		75E73204299015100087A969 /* WelcomeFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeedService.swift; sourceTree = "<group>"; };
+		75E7320B29950CE20087A969 /* WelcomeFeedServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeedServiceStub.swift; sourceTree = "<group>"; };
+		75E7320E29950F690087A969 /* WelcomeFeedServiceStubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeedServiceStubTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 		28B6EA4C2655436600263D7B /* AuthAppBusinessDomain */ = {
 			isa = PBXGroup;
 			children = (
+				75E73203299014F00087A969 /* Welcome */,
 				28B6EA6D2655443800263D7B /* CredentialAuthenticationUseCase.swift */,
 				7555C94B2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift */,
 				28B6EA6C2655443800263D7B /* FinishLoaderUseCase.swift */,
@@ -122,6 +133,7 @@
 		28B6EA572655436600263D7B /* AuthAppBusinessDomainTests */ = {
 			isa = PBXGroup;
 			children = (
+				75E7320929950CB60087A969 /* Welcome */,
 				7555C94D2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift */,
 				28B6EA802655444400263D7B /* DeviceAuthenticationUseCaseTest.swift */,
 				28B6EA7F2655444400263D7B /* FinishLoaderUseCaseTest.swift */,
@@ -154,6 +166,41 @@
 				7554BD3B29816EEE002D5442 /* AuthenticationDataPresenterTest.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		75E73203299014F00087A969 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				75E7320A29950CD20087A969 /* infra */,
+				75E7320129900CFB0087A969 /* WelcomeFeedDataUseCase.swift */,
+				75E73204299015100087A969 /* WelcomeFeedService.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		75E7320929950CB60087A969 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				75E7320D29950F500087A969 /* infra */,
+				75E731FF299007200087A969 /* WelcomeFeedDataUseCaseTests.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		75E7320A29950CD20087A969 /* infra */ = {
+			isa = PBXGroup;
+			children = (
+				75E7320B29950CE20087A969 /* WelcomeFeedServiceStub.swift */,
+			);
+			path = infra;
+			sourceTree = "<group>";
+		};
+		75E7320D29950F500087A969 /* infra */ = {
+			isa = PBXGroup;
+			children = (
+				75E7320E29950F690087A969 /* WelcomeFeedServiceStubTests.swift */,
+			);
+			path = infra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B6EA722655443800263D7B /* FinishLoaderUseCase.swift in Sources */,
+				75E7320229900CFB0087A969 /* WelcomeFeedDataUseCase.swift in Sources */,
 				28B6EA712655443800263D7B /* ResetAuthStateUseCase.swift in Sources */,
 				7554BD392981699A002D5442 /* AuthenticationDataPresenter.swift in Sources */,
+				75E73205299015100087A969 /* WelcomeFeedService.swift in Sources */,
 				7555C94C2982F03B0006BA2B /* DeviceAuthenticationUseCase.swift in Sources */,
+				75E7320C29950CE20087A969 /* WelcomeFeedServiceStub.swift in Sources */,
 				28B6EA732655443800263D7B /* CredentialAuthenticationUseCase.swift in Sources */,
 				7555C94A29828CD20006BA2B /* PersistAuthDataUseCase.swift in Sources */,
 			);
@@ -279,8 +329,10 @@
 			files = (
 				28B6EA832655444400263D7B /* ResetAuthStateUseCaseTest.swift in Sources */,
 				28B6EA852655444400263D7B /* DeviceAuthenticationUseCaseTest.swift in Sources */,
+				75E73200299007200087A969 /* WelcomeFeedDataUseCaseTests.swift in Sources */,
 				7555C94E2982F13E0006BA2B /* CredentialAuthenticationUseCaseTest.swift in Sources */,
 				7554BD3D29816EEF002D5442 /* AuthenticationDataPresenterTest.swift in Sources */,
+				75E7320F29950F690087A969 /* WelcomeFeedServiceStubTests.swift in Sources */,
 				28B6EA842655444400263D7B /* FinishLoaderUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

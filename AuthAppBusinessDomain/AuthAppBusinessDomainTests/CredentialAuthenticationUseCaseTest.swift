@@ -2,8 +2,8 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthAppBusinessDomain
 import XCTest
-@testable import AuthAppBusinessDomain
 
 class CredentialAuthenticationUseCaseTest: XCTestCase {
     func test_credential_authentication_success_results_in_correctData() {

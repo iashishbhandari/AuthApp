@@ -2,8 +2,8 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthAppBusinessDomain
 import XCTest
-@testable import AuthAppBusinessDomain
 
 class ResetAuthStateUseCaseTest: XCTestCase {
     func test_reset_once_sets_counter_one() {

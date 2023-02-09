@@ -2,8 +2,8 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthAppBusinessDomain
 import XCTest
-@testable import AuthAppBusinessDomain
 
 class FinishLoaderUseCaseTest: XCTestCase {
     func test_complete_once_resultsCounter_one() {

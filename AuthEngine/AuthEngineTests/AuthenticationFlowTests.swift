@@ -2,8 +2,8 @@
 //  Copyright (c) 2023 Ashish Bhandari
 //
 
+import AuthEngine
 import XCTest
-@testable import AuthEngine
 
 class AuthenticationFlowTests: XCTestCase {
     func test_flow_initialization_captures_no_result() {

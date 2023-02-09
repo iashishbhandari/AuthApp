@@ -9,8 +9,8 @@ class AuthAppStore {
     private init() {}
     static let shared = AuthAppStore()
     
-    let store: PersistAuthDataUseCase = PersistAuthDataUseCase()
     var adaptor: AuthAppNavigationAdapter?
+    let store = PersistAuthDataUseCase()
 }
 
 @main
@@ -22,10 +22,8 @@ struct AuthiOSApp: App {
             AppNavigationView(store: navigation)
                 .onAppear {
                     let adaptor = AuthAppNavigationAdapter(navigation: navigation)
-                    adaptor.showLoadingScreen {
-                        adaptor.showLockedScreen()
-                    }
                     AuthAppStore.shared.adaptor = adaptor
+                    adaptor.showLockedScreen()
                 }
         }
     }
